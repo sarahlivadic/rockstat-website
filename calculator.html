@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Calculate Cost | RockStat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Manrope:wght@300;400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+  <link rel="stylesheet" href="calculator.css">
+</head>
+
+<body>
+<section class="calculate-section" id="calculate">
+  <div class="calculate-wrapper">
+
+    <div class="calculate-info">
+      <p class="calculate-eyebrow">TAILORED BUSINESS SOLUTIONS</p>
+
+      <h2>Build your individual proposal</h2>
+
+      <p class="calculate-intro">
+        Select the services that fit your goals. We will review your request
+        and contact you with a personalized proposal.
+      </p>
+
+      <div class="calculate-steps">
+        <div class="calculate-step active">
+          <span>01</span>
+          <div>
+            <strong>Choose services</strong>
+            <small>Select everything you are interested in</small>
+          </div>
+        </div>
+
+        <div class="calculate-step">
+          <span>02</span>
+          <div>
+            <strong>Share details</strong>
+            <small>Tell us more about your project</small>
+          </div>
+        </div>
+
+        <div class="calculate-step">
+          <span>03</span>
+          <div>
+            <strong>Get contacted</strong>
+            <small>Receive a tailored proposal</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calculate-form-area">
+      <div class="calculate-heading">
+        <p>CALCULATE THE COST</p>
+        <h3>Select the services you are interested in</h3>
+        <span>
+          You may select several options. Final pricing is calculated individually.
+        </span>
+      </div>
+
+      <form id="calculateForm">
+
+        <div class="calculate-services">
+
+          <label class="calculate-option">
+            <input type="checkbox" name="services" value="PR & Media Support">
+            <span class="calculate-check"></span>
+            <span>
+              <strong>PR & Media Support</strong>
+              <small>Travel and lifestyle media relations</small>
+            </span>
+          </label>
+
+          <label class="calculate-option">
+            <input type="checkbox" name="services" value="FAM Trips">
+            <span class="calculate-check"></span>
+            <span>
+              <strong>FAM Trips</strong>
+              <small>Educational trips for partners</small>
+            </span>
+          </label>
+
+          <label class="calculate-option">
+            <input type="checkbox" name="services" value="Event Marketing">
+            <span class="calculate-check"></span>
+            <span>
+              <strong>Event Marketing</strong>
+              <small>Networking, workshops and presentations</small>
+            </span>
+          </label>
+
+          <label class="calculate-option">
+            <input type="checkbox" name="services" value="Market Analytics">
+            <span class="calculate-check"></span>
+            <span>
+              <strong>Market Analytics</strong>
+              <small>Market, audience and competitor analysis</small>
+            </span>
+          </label>
+
+          <label class="calculate-option">
+            <input type="checkbox" name="services" value="Promotion Strategy">
+            <span class="calculate-check"></span>
+            <span>
+              <strong>Promotion Strategy</strong>
+              <small>Individual market-entry strategy</small>
+            </span>
+          </label>
+
+          <label class="calculate-option">
+            <input type="checkbox" name="services" value="Brand Representation">
+            <span class="calculate-check"></span>
+            <span>
+              <strong>Brand Representation</strong>
+              <small>Sales, PR and partner development</small>
+            </span>
+          </label>
+
+          <label class="calculate-option">
+            <input type="checkbox" name="services" value="Distribution Development">
+            <span class="calculate-check"></span>
+            <span>
+              <strong>Distribution Development</strong>
+              <small>Development of sales channels</small>
+            </span>
+          </label>
+
+          <label class="calculate-option">
+            <input type="checkbox" name="services" value="Agency Network">
+            <span class="calculate-check"></span>
+            <span>
+              <strong>Agency Network</strong>
+              <small>Work with agencies and tour operators</small>
+            </span>
+          </label>
+
+          <label class="calculate-option">
+            <input type="checkbox" name="services" value="Partner Marketing">
+            <span class="calculate-check"></span>
+            <span>
+              <strong>Partner Marketing</strong>
+              <small>Joint campaigns and partnerships</small>
+            </span>
+          </label>
+
+          <label class="calculate-option">
+            <input type="checkbox" name="services" value="Press Tours & Media Visits">
+            <span class="calculate-check"></span>
+            <span>
+              <strong>Press Tours & Media Visits</strong>
+              <small>Programs for journalists and opinion leaders</small>
+            </span>
+          </label>
+
+          <label class="calculate-option">
+            <input type="checkbox" name="services" value="Additional Services">
+            <span class="calculate-check"></span>
+            <span>
+              <strong>Additional Services</strong>
+              <small>Request an extended service list</small>
+            </span>
+          </label>
+
+          <label class="calculate-option">
+            <input type="checkbox" name="services" value="Individual Solution">
+            <span class="calculate-check"></span>
+            <span>
+              <strong>Individual Solution</strong>
+              <small>A custom solution for your goals</small>
+            </span>
+          </label>
+
+        </div>
+
+        <div class="calculate-field">
+          <label for="projectDetails">Additional information</label>
+
+          <textarea
+            id="projectDetails"
+            placeholder="Tell us about your project, target market, timing, approximate budget or special requirements."
+          ></textarea>
+        </div>
+
+        <div class="calculate-summary">
+          <span>Selected services</span>
+          <strong id="selectedServicesCount">0</strong>
+        </div>
+
+        <p class="calculate-error" id="calculateError"></p>
+
+        <button type="submit" class="calculate-button">
+          <span>Calculate & continue</span>
+          <span>↗</span>
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<div class="calculate-modal" id="calculateModal">
+
+  <div class="calculate-modal-overlay" data-close-calculate-modal></div>
+
+  <div class="calculate-modal-content">
+
+    <button
+      type="button"
+      class="calculate-modal-close"
+      data-close-calculate-modal
+    >
+      ×
+    </button>
+
+    <p class="calculate-eyebrow">FINAL STEP</p>
+
+    <h3>Where should we contact you?</h3>
+
+    <p class="calculate-modal-description">
+      Leave your contact details and we will prepare a personalized proposal.
+    </p>
+
+    <form id="calculateContactForm">
+
+      <div class="calculate-two-fields">
+
+        <div class="calculate-field">
+          <label for="calculateFirstName">First name</label>
+          <input
+            type="text"
+            id="calculateFirstName"
+            required
+          >
+        </div>
+
+        <div class="calculate-field">
+          <label for="calculateLastName">Last name</label>
+          <input
+            type="text"
+            id="calculateLastName"
+            required
+          >
+        </div>
+
+      </div>
+
+      <div class="calculate-field">
+        <label for="calculateCompany">Company</label>
+        <input
+          type="text"
+          id="calculateCompany"
+        >
+      </div>
+
+      <div class="calculate-field">
+        <label for="calculateEmail">Business email</label>
+        <input
+          type="email"
+          id="calculateEmail"
+          required
+        >
+      </div>
+
+      <div class="calculate-field">
+        <label for="calculatePhone">Phone / WhatsApp</label>
+        <input
+          type="tel"
+          id="calculatePhone"
+        >
+      </div>
+
+      <label class="calculate-consent">
+        <input
+          type="checkbox"
+          id="calculateConsent"
+          required
+        >
+        <span class="calculate-check"></span>
+        <span>I agree to be contacted regarding this request.</span>
+      </label>
+
+      <p class="calculate-error" id="calculateContactError"></p>
+
+      <button type="submit" class="calculate-button">
+        <span>Send request</span>
+        <span>↗</span>
+      </button>
+
+    </form>
+
+  </div>
+</div>
+  <script src="calculator.js"></script>
+</body>
+
+</html>
