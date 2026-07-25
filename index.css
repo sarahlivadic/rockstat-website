@@ -1,0 +1,2523 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #111312;
+  --surface: rgba(27, 30, 28, 0.88);
+  --surface-solid: #1a1d1b;
+  --surface-soft: rgba(255, 255, 255, 0.055);
+  --text: #f4f4ef;
+  --muted: #b7bbb6;
+  --accent: #01046a;
+  --accent-light: #efe0bb;
+  --border: rgba(255, 255, 255, 0.13);
+  --shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+
+  color: var(--text);
+  background: var(--background);
+
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* =========================================================
+   GLOBALNA POZADINSKA SLIKA
+
+   Ovdje mijenjaš:
+   images/travel-background.jpg
+
+   Ova slika se proteže preko čitave stranice.
+   ========================================================= */
+
+.page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+  background: #111312;
+}
+
+.page-wrapper::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(18, 1, 30, 0.5),
+      rgba(10, 11, 10, 0.5)
+    ),
+    url("media/palm2.jpg");
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  filter:
+    saturate(0.88)
+    brightness(0.92)
+    blur(0.6px);
+}
+
+.page-wrapper::after {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.06),
+      rgba(25,33,27,0.18)
+    );
+}
+
+.main-content {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* =========================================================
+   HERO SHELL
+   ========================================================= */
+
+.hero-shell {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar {
+  position: absolute;
+  top: 22px;
+  left: 28px;
+  right: 28px;
+  z-index: 20;
+
+  min-height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+
+  padding: 12px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+
+  background: rgba(7, 18, 27, 0.08);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.brand img{
+
+    width: 105px;
+    height: 105px;
+
+    object-fit:contain;
+
+    margin-top:-24px;
+    margin-bottom:-24px;
+
+    z-index:5;
+}
+
+.brand strong,
+.brand span {
+  display: block;
+}
+
+.brand strong{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    line-height:1;
+}
+
+.brand span{
+
+    margin-top:4px;
+
+    font-size:11px;
+
+    letter-spacing:.18em;
+
+    color:rgba(255,255,255,.75);
+
+    text-transform:uppercase;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap:42px;
+}
+
+.navbar nav a {
+  position: relative;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  text-decoration: none;
+  font-size:17px;
+font-weight:500;
+}
+
+.navbar nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -7px;
+
+  height: 1px;
+
+  background: var(--accent);
+  transition: right 0.25s ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+  color: white;
+}
+
+.navbar nav a:hover::after,
+.navbar nav a.active::after {
+  right: 0;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.language {
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0 18px;
+
+  border-radius: 10px;
+
+  color: #111;
+  background: #f3f1e9;
+
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 820px;
+
+  overflow: hidden;
+  border-radius: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 18, 27, 0.76) 0%,
+      rgba(7, 18, 27, 0.52) 38%,
+      rgba(7, 18, 27, 0.14) 68%,
+      rgba(7, 18, 27, 0.03) 100%
+    ),
+    url("media/palm2.jpg");
+
+  background-size: cover;
+  background-position: center 58%;
+  background-repeat: no-repeat;
+
+  margin: 0;
+  box-shadow: none;
+  clip-path: none;
+}
+
+/* =========================================================
+   MEKI GRADIENT NA KRAJU HERO SLIKE
+   ========================================================= */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 65%,
+      rgba(20, 29, 36, 0.08) 80%,
+      rgba(20, 29, 36, 0.20) 90%,
+      rgba(20, 29, 36, 0.38) 96%,
+      #141d24 100%
+    );
+}
+/* =========================================================
+   HERO CONTAINER
+   ========================================================= */
+
+.hero-container {
+  width: min(1450px, calc(100% - 44px));
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO OVERLAY
+   ========================================================= */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5, 13, 20, 0.10) 0%,
+      rgba(5, 13, 20, 0.02) 55%,
+      rgba(5, 13, 20, 0.18) 100%
+    );
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+
+  min-height: 820px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 760px) 340px;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 70px;
+
+  padding: 100px 70px 70px;
+}
+
+
+/* =========================================================
+   HERO LIJEVA STRANA
+   ========================================================= */
+
+.hero-copy {
+  width: 100%;
+  max-width: 720px;
+
+  margin: 0;
+}
+
+.hero-kicker {
+  display: inline-block;
+
+  margin-bottom: 30px;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+}
+
+.hero-heading {
+  display: block;
+}
+
+.hero-heading h1 {
+  width: 100%;
+  max-width: 720px;
+
+  margin: 0;
+
+  color: #f7f3ea;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(58px, 5vw, 82px);
+  font-weight: 400;
+  line-height: 0.98;
+
+  letter-spacing: -0.04em;
+
+  text-shadow:
+    0 3px 22px rgba(0, 0, 0, 0.35);
+}
+
+.hero-line {
+  display: block;
+}
+
+.hero-line + .hero-line {
+  margin-top: 2px;
+}
+
+.hero-line-accent {
+  color: #d7a447;
+
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero-copy > p {
+  max-width: 560px;
+
+  margin-top: 32px;
+
+  color: rgba(255, 255, 255, 0.79);
+
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
+
+  letter-spacing: 0.01em;
+
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 28px;
+
+  margin-top: 34px;
+}
+
+.primary-button {
+  min-width: 220px;
+  min-height: 56px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  padding: 0 20px;
+
+  border-radius: 12px;
+
+  color: #111111;
+  background: #f4f3ed;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.primary-button:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+}
+
+.text-link,
+.card-link {
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.text-link {
+  padding-bottom: 5px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.48);
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.text-link:hover {
+  color: #ead49b;
+  border-color: #ead49b;
+}
+
+
+/* =========================================================
+   HERO DESNA KARTICA
+   ========================================================= */
+
+.hero-service-card {
+  position: relative;
+  align-self: center;
+
+  width: 100%;
+
+  margin-top: 20px;
+  padding: 34px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.18);
+border-radius: 2px;
+
+  background:
+  linear-gradient(
+    145deg,
+    rgba(10, 19, 22, 0.48),
+    rgba(9, 17, 20, 0.28)
+  );
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.hero-service-card .mini-label {
+  color: #fff0c7;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-service-card h2,
+.hero-service-card h3 {
+  .hero-service-card h2 {
+  margin: 20px 0 0;
+
+  color: #ffffff;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 0.98;
+
+  letter-spacing: -0.04em;
+}
+}
+
+.hero-service-card p {
+  margin-top: 18px;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.hero-service-card a {
+  width: 100%;
+  min-height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 28px;
+  padding: 0 18px;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+  color: #171714;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition: transform 0.25s ease;
+}
+
+.hero-service-card a:hover {
+  transform: translateY(-2px);
+}
+
+
+
+/* =========================================================
+   INTRO / WHO WE ARE
+   ========================================================= */
+
+.intro-section {
+  position: relative;
+
+  margin-top: -1px;
+  padding: 90px 0 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #10181e 0%,
+      #141d24 35%,
+      #141d24 100%
+    );
+}
+
+
+/* MEKI PRELAZ IZ HERO SLIKE */
+
+.intro-section::before {
+  content: "";
+
+  position: absolute;
+  top: -130px;
+  left: 0;
+  right: 0;
+
+  height: 220px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(16, 24, 30, 0.18) 25%,
+      rgba(16, 24, 30, 0.52) 55%,
+      rgba(16, 24, 30, 0.84) 80%,
+      #10181e 100%
+    );
+}
+
+.intro-section::after {
+  content: none;
+}
+
+
+/* =========================================================
+   INTRO GRID
+   ========================================================= */
+
+.intro-grid {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(360px, 0.72fr);
+
+  gap: 22px;
+
+  margin: 0;
+}
+/* =========================================================
+   INTRO CARDS
+   ========================================================= */
+
+.intro-image-card,
+.intro-text-card {
+  min-height: 560px;
+
+  border-radius: 24px;
+  overflow: hidden;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   INTRO IMAGE
+   ========================================================= */
+
+.intro-image-card {
+  position: relative;
+}
+
+.intro-image-card img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.intro-image-card::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(6, 8, 8, 0.66) 0%,
+      rgba(6, 8, 8, 0.05) 55%,
+      transparent 100%
+    );
+}
+
+
+/* =========================================================
+   IMAGE BADGE
+   ========================================================= */
+
+.image-badge {
+  position: absolute;
+
+  left: 28px;
+  bottom: 28px;
+
+  z-index: 2;
+
+  min-width: 180px;
+
+  padding: 18px 22px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 18px;
+
+  background:
+    rgba(12, 23, 25, 0.78);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.image-badge strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-family:
+    "Cormorant Garamond",
+    "Playfair Display",
+    serif;
+
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.image-badge span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #c8c8c8;
+
+  font-size: 11px;
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   INTRO TEXT CARD
+   ========================================================= */
+
+.intro-text-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 54px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.14);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.10),
+      rgba(255, 255, 255, 0.04)
+    );
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.intro-card-top {
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  margin-bottom: 32px;
+}
+
+.section-number {
+  width: 48px;
+  height: 48px;
+
+  flex: 0 0 48px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 50%;
+
+  color: #ead49b;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.section-kicker {
+  display: inline-block;
+
+  color: #d8ba74;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+
+  text-transform: uppercase;
+}
+
+.intro-text-card h2 {
+  margin: 0 0 24px;
+
+  color: #ffffff;
+
+  font-family:
+    "Cormorant Garamond",
+    "Playfair Display",
+    serif;
+
+  font-size: clamp(48px, 4.6vw, 68px);
+font-weight: 400;
+line-height: 0.95;
+
+  letter-spacing: -0.03em;
+}
+
+.intro-text-card p {
+  max-width: 520px;
+
+  margin: 0 0 18px;
+
+  color: rgba(255, 255, 255, 0.76);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.intro-text-card .intro-lead {
+  color: rgba(255, 255, 255, 0.92);
+
+  font-size: 16px;
+}
+
+.card-link {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 18px;
+  padding-bottom: 6px;
+
+  color: #ffffff;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.30);
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card-link:hover {
+  color: #ead49b;
+  border-color: #ead49b;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .hero-content {
+    min-height: auto;
+
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    padding: 90px 40px 80px;
+  }
+
+  .hero-service-card {
+    max-width: 430px;
+
+    margin-top: 0;
+  }
+
+  .intro-section {
+    width: min(100% - 36px, 1320px);
+
+    margin: 0 auto;
+    padding: 36px 0 80px;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-image-card,
+  .intro-text-card {
+    min-height: 520px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .hero {
+    min-height: auto;
+
+    background-position: 62% center;
+  }
+
+  .hero-container {
+    width: min(100% - 28px, 1450px);
+  }
+
+  .hero-content {
+    min-height: auto;
+
+    padding: 105px 10px 70px;
+  }
+
+  .hero-heading h1 {
+    font-size: clamp(42px, 14vw, 58px);
+  }
+
+  .hero-copy > p {
+    font-size: 15px;
+  }
+
+  .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .hero-service-card {
+    padding: 27px;
+  }
+
+  .intro-section {
+    width: min(100% - 28px, 1320px);
+
+    margin: 0 auto;
+    padding: 28px 0 70px;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .intro-image-card {
+    min-height: 430px;
+  }
+
+  .intro-text-card {
+    min-height: auto;
+
+    padding: 36px 28px;
+  }
+
+  .intro-text-card h2 {
+    font-size: 44px;
+  }
+
+}
+/* =========================================================
+   SERVICES OVERVIEW
+   ========================================================= */
+
+/* =========================================================
+   SERVICES OVERVIEW
+   ========================================================= */
+
+.services-overview {
+  position: relative;
+
+  margin-top: -2px;
+  padding: 120px 0;
+
+  overflow: hidden;
+}
+
+
+/* MEKI PRELAZ IZ WHO WE ARE SEKCIJE */
+
+.services-overview::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #141d24 0%,
+      rgba(20, 29, 36, 0.88) 8%,
+      rgba(20, 29, 36, 0.56) 18%,
+      rgba(20, 29, 36, 0.22) 30%,
+      transparent 42%
+    );
+}
+
+.services-overview-heading {
+  max-width: 860px;
+
+  margin: 0 auto 60px;
+
+  text-align: center;
+}
+
+.services-overview-heading .section-kicker {
+  display: block;
+
+  color: #ead49b;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.services-overview-heading h2 {
+  margin-top: 18px;
+
+  color: #ffffff;
+
+  font-family: "Cormorant Garamond", "Playfair Display", serif;
+  font-size: clamp(52px, 5.7vw, 82px);
+    font-weight: 400;
+    line-height: 0.94;
+  letter-spacing: -0.03em;
+
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.25);
+}
+
+.services-overview-heading p {
+  max-width: 720px;
+
+  margin: 24px auto 0;
+
+  color: rgba(255, 255, 255, 0.76);
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* KARTICE */
+
+.services-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.service-category-card {
+  position: relative;
+
+  min-height: 430px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 34px 30px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.11),
+      rgba(14, 31, 27, 0.3)
+    );
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  color: #ffffff;
+  text-decoration: none;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.service-category-card:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(234, 212, 155, 0.48);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.15),
+      rgba(14, 31, 27, 0.4)
+    );
+
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* BROJ */
+
+.service-number {
+  width: 52px;
+  height: 52px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #f4f2ec;
+  color: #111820;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* NASLOV */
+
+.service-category-card h3 {
+  margin-top: 48px;
+
+  color: #ffffff;
+
+  font-family: "Cormorant Garamond", "Playfair Display", serif;
+  font-size: 37px;
+font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* LISTA */
+
+.service-category-card ul {
+  display: grid;
+  gap: 11px;
+
+  margin-top: 24px;
+  padding: 0;
+
+  list-style: none;
+}
+
+.service-category-card li {
+  position: relative;
+
+  padding-left: 18px;
+
+  color: rgba(255, 255, 255, 0.74);
+
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.service-category-card li::before {
+  content: "";
+
+  position: absolute;
+  top: 0.68em;
+  left: 0;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #ead49b;
+}
+
+/* DONJI LINK */
+
+.service-card-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: auto;
+  padding-top: 28px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.service-card-link strong {
+  color: #ead49b;
+  font-size: 18px;
+
+  transition: transform 0.25s ease;
+}
+
+.service-category-card:hover .service-card-link strong {
+  transform: translate(3px, -3px);
+}
+
+/* DONJI CTA */
+
+.services-overview-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  margin-top: 45px;
+}
+
+.services-overview-bottom p {
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 15px;
+}
+
+/* SADRŽAJ IZNAD GRADIENTA */
+
+.services-overview-heading,
+.services-overview-grid,
+.services-overview-bottom {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .services-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .services-overview {
+    width: min(100% - 28px, 1320px);
+    padding: 60px 0 90px;
+  }
+
+  .services-overview-heading {
+    margin-bottom: 40px;
+  }
+
+  .services-overview-heading h2 {
+    font-size: clamp(40px, 12vw, 58px);
+  }
+
+  .services-overview-heading p {
+    font-size: 15px;
+  }
+
+  .services-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-category-card {
+    min-height: 390px;
+  }
+
+  .services-overview-bottom {
+    align-items: stretch;
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .services-overview-bottom .primary-button {
+    width: 100%;
+  }
+
+}
+
+/* =========================================================
+   FOUNDERS PREVIEW
+   USKLAĐENO SA OSTATKOM STRANICE
+   ========================================================= */
+/* =========================================================
+   FOUNDERS PREVIEW
+   MEKI PRIJELAZ PREMA LUXURY SLICI
+   ========================================================= */
+.founders-preview {
+  position: relative;
+  z-index: 2;
+
+  width: calc(100% - 32px);
+  max-width: 1760px;
+
+  margin: 100px auto 0;
+  padding: 0;
+
+  background: transparent;
+}
+
+/* BLAGI SJAJ ISPOD FOUNDERS KARTICE */
+
+.founders-preview::after {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  left: 50%;
+  bottom: -110px;
+
+  width: min(1050px, 90vw);
+  height: 260px;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(55, 83, 70, 0.28) 0%,
+      rgba(19, 35, 30, 0.15) 38%,
+      transparent 72%
+    );
+
+  filter: blur(24px);
+}
+
+
+/* =========================================================
+   GLAVNA FOUNDERS KARTICA
+   ========================================================= */
+
+.founders-preview-inner {
+  position: relative;
+
+  min-height: 420px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  align-items: center;
+
+  gap: 70px;
+
+  padding: 70px 100px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(54, 74, 67, 0.86),
+      rgba(17, 38, 31, 0.94)
+    );
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  box-shadow:
+    0 24px 65px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* BLAGI ZLATNI SJAJ */
+
+.founders-preview-inner::before {
+  content: "";
+
+  position: absolute;
+
+  width: 380px;
+  height: 380px;
+
+  right: -170px;
+  top: -190px;
+
+  border: 1px solid rgba(234, 212, 155, 0.18);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+/* DONJI BLAGI SJAJ */
+
+.founders-preview-inner::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  right: 90px;
+  bottom: -180px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(234, 212, 155, 0.09),
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BROJ 05
+   ========================================================= */
+
+.founders-preview-number {
+  position: absolute;
+
+  top: 42px;
+  right: 48px;
+
+  z-index: 2;
+
+  color: rgba(234, 212, 155, 0.42);
+
+  font-family:
+    "Cormorant Garamond",
+    "Playfair Display",
+    serif;
+
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   SADRŽAJ
+   ========================================================= */
+
+.founders-preview-content {
+  position: relative;
+  z-index: 3;
+
+  max-width: 720px;
+}
+
+
+/* MALI NASLOV */
+
+.founders-preview-content .small-title {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: #ead49b;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.founders-preview-content .small-title::before {
+  content: "";
+
+  width: 32px;
+  height: 1px;
+
+  background: #ead49b;
+}
+
+
+/* GLAVNI NASLOV */
+
+.founders-preview-content h2 {
+  max-width: 600px;
+
+  margin-top: 22px;
+
+  color: #ffffff;
+
+  font-family:
+    "Cormorant Garamond",
+    "Playfair Display",
+    serif;
+
+  font-size: clamp(48px, 4.5vw, 70px);
+  font-weight: 500;
+  line-height: 0.95;
+
+  letter-spacing: -0.035em;
+}
+
+.founders-preview-content h2 em {
+  display: inline;
+
+  color: #ead49b;
+
+  font-weight: 500;
+}
+
+
+/* OPIS */
+
+.founders-preview-content p {
+  max-width: 650px;
+
+  margin-top: 24px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   DUGME
+   ========================================================= */
+
+.founders-preview-link {
+  min-width: 225px;
+  min-height: 56px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 28px;
+
+  margin-top: 32px;
+  padding: 0 20px;
+
+  border: 0;
+  border-radius: 12px;
+
+  color: #111111;
+  background: #f4f3ed;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.founders-preview-link:hover {
+  color: #111111;
+  background: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+.founders-preview-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+
+  transition: transform 0.25s ease;
+}
+
+.founders-preview-link:hover .founders-preview-arrow {
+  transform: translate(2px, -2px);
+}
+
+
+/* =========================================================
+   DESNA DEKORATIVNA STRANA
+   ========================================================= */
+
+.founders-preview-decoration {
+  position: relative;
+  z-index: 2;
+
+  min-height: 250px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.founders-preview-decoration span {
+  color: rgba(255, 255, 255, 0.055);
+
+  font-family:
+    "Cormorant Garamond",
+    "Playfair Display",
+    serif;
+
+  font-size: 210px;
+  font-weight: 600;
+  line-height: 0.75;
+
+  user-select: none;
+}
+
+/* =========================================================
+   CASES
+   ========================================================= */
+
+.cases-section {
+  position: relative;
+
+  padding: 120px 6%;
+
+  color: white;
+  background: transparent;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   CASES → LUXURY IMAGE TRANSITION
+   ========================================================= */
+
+
+
+.cases-header {
+  max-width: 760px;
+
+  margin: 0 auto 70px;
+
+  text-align: center;
+}
+
+.cases-header span {
+  color: #c9a86a;
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.cases-header h2 {
+  margin: 18px 0 22px;
+
+  font-family: "Playfair Display", serif;
+  font-size: 64px;
+}
+
+.cases-header p {
+  color: #e4e4e4;
+
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.cases-slider {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  overflow-x: auto;
+
+  padding: 35px 20px 55px;
+
+  scroll-behavior: smooth;
+}
+
+.case-card {
+  position: relative;
+
+  width: 320px;
+  min-width: 320px;
+  height: 420px;
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  background: #2a2838;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+
+  cursor: pointer;
+}
+
+.case-card img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+.case-card::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(15, 14, 25, 0.9),
+      rgba(15, 14, 25, 0.15)
+    ),
+    linear-gradient(
+      135deg,
+      rgba(201, 168, 106, 0.25),
+      rgba(95, 62, 160, 0.25)
+    );
+}
+
+.case-info {
+  position: absolute;
+  z-index: 2;
+
+  left: 24px;
+  right: 24px;
+  bottom: 26px;
+}
+
+.case-info h3 {
+  margin-bottom: 10px;
+
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.case-info p {
+  color: #e8e8e8;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.case-card:hover {
+  transform: translateY(-18px) scale(1.04);
+
+  box-shadow: 0 35px 80px rgba(201, 168, 106, 0.35);
+}
+
+.case-card:hover img {
+  transform: scale(1.12);
+
+  filter: brightness(1.12);
+}
+
+.cases-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+.cases-slider::-webkit-scrollbar-track {
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cases-slider::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+
+  background: #c9a86a;
+}
+/* =========================================================
+   LUXURY IMAGE
+   ========================================================= */
+
+.luxury-ending {
+  position: relative;
+
+  width: min(1500px, calc(100% - 120px));
+  min-height: 580px;
+
+  margin: 120px auto 0;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background: url("media/dubainature2.jpg") center center / cover no-repeat;
+
+  box-shadow:
+    0 20px 45px rgba(0,0,0,.18),
+    0 45px 90px rgba(0,0,0,.24);
+
+  isolation: isolate;
+}
+
+/* BLAGI TAMNI OVERLAY RADI ČITLJIVOSTI */
+
+.luxury-ending::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8,12,16,.32) 0%,
+            rgba(8,12,16,.14) 28%,
+            rgba(8,12,16,0) 55%
+        );
+
+    z-index:1;
+}
+
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+.luxury-text{
+
+    position:absolute;
+
+    left:72px;
+    bottom:58px;
+
+    z-index:2;
+
+    width:560px;
+    max-width:calc(100% - 120px);
+
+    padding:0;
+
+    background:none;
+    border:none;
+    backdrop-filter:none;
+}
+
+
+.luxury-text h2{
+
+    margin:0;
+
+    color:#f8f4ed;
+
+    font-family:
+    "Cormorant Garamond",
+    "Playfair Display",
+    serif;
+
+    font-size:clamp(48px,4vw,72px);
+
+    font-weight:500;
+
+    line-height:.92;
+
+    letter-spacing:-.03em;
+
+    text-shadow:
+        0 6px 18px rgba(0,0,0,.28);
+}
+
+
+.luxury-text p{
+
+    margin-top:20px;
+
+    max-width:420px;
+
+    color:rgba(255,255,255,.92);
+
+    font-size:17px;
+
+    line-height:1.65;
+
+    text-shadow:
+        0 3px 10px rgba(0,0,0,.35);
+}
+
+.luxury-text::before{
+
+    content:"";
+
+    display:block;
+
+    width:54px;
+    height:2px;
+
+    margin-bottom:22px;
+
+    background:#ead49b;
+}
+/* =========================================================
+   NORMALNE SEKCIJE
+   ========================================================= */
+
+.page-section{
+    position:relative;
+
+    min-height:auto;
+
+    padding:100px 8%;
+
+    background:transparent;
+}
+
+.container {
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+.page-section h2 {
+  margin-bottom: 30px;
+
+  color: #f7f3ea;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(44px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 0.96;
+}
+
+.page-section p {
+  max-width: 900px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.partner-grid,
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+
+  margin-top: 40px;
+}
+
+.partner-card,
+.service-box {
+  min-height: 160px;
+
+  padding: 35px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.018)
+    );
+}
+
+.partner-card h3,
+.service-box h3 {
+  margin-bottom: 15px;
+
+  color: #d7a447;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 20px;
+  padding: 16px 30px;
+
+  border: 1px solid #d7a447;
+  border-radius: 2px;
+
+  color: #111111;
+  background: #d7a447;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  position: relative;
+  z-index: 5;
+
+  width: min(1450px, calc(100% - 36px));
+
+  margin: 0 auto 18px;
+  padding: 70px 65px 28px;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 17, 28, 0.9),
+      rgba(11, 57, 84, 0.78)
+    );
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  color: #ffffff;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.5fr) 0.7fr 1fr;
+  gap: 80px;
+
+  padding-bottom: 55px;
+}
+
+/* BREND */
+
+.footer-brand {
+  max-width: 480px;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-logo img {
+  width: 92px;
+  height: 92px;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+}
+
+.footer-logo strong,
+.footer-logo span {
+  display: block;
+}
+
+.footer-logo strong {
+  font-family: "Cormorant Garamond", "Playfair Display", serif;
+
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 0.95;
+}
+
+.footer-logo span {
+  margin-top: 8px;
+
+  color: #ead49b;
+
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.footer-brand > p {
+  max-width: 430px;
+
+  margin-top: 28px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* KOLONE */
+
+.footer-column h3 {
+  margin-bottom: 25px;
+
+  color: #ead49b;
+
+  font-family: "Cormorant Garamond", "Playfair Display", serif;
+
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.footer-navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.footer-navigation a {
+  position: relative;
+
+  color: rgba(255, 255, 255, 0.74);
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.footer-navigation a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* KONTAKT */
+
+.footer-email {
+  display: inline-block;
+
+  color: #ffffff;
+
+  text-decoration: none;
+  overflow-wrap: anywhere;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  transition: color 0.25s ease;
+}
+
+.footer-email:hover {
+  color: #ead49b;
+}
+
+.footer-column > p {
+  margin-top: 16px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.footer-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+
+  margin-top: 28px;
+  padding-bottom: 7px;
+
+  border-bottom: 1px solid rgba(234, 212, 155, 0.55);
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.footer-contact-link:hover {
+  color: #ead49b;
+  border-color: #ead49b;
+}
+
+/* DONJA LINIJA */
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.52);
+
+  font-size: 12px;
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.footer-legal a {
+  color: rgba(255, 255, 255, 0.55);
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  transition: color 0.25s ease;
+}
+
+.footer-legal a:hover {
+  color: #ffffff;
+}
+
+
+
+
+
+/* =========================================================
+   LUXURY EDITORIAL TYPOGRAPHY
+   ========================================================= */
+
+.brand strong,
+.hero-heading h1,
+.hero-service-card h2,
+.intro-text-card h2,
+.services-overview-heading h2,
+.service-category-card h3,
+.founders-preview-content h2,
+.cases-header h2,
+.luxury-text h2,
+.page-section h2,
+.footer-logo strong,
+.footer-column h3 {
+  font-family: "Bodoni Moda", serif;
+}
+
+.hero-service-card h2,
+.intro-text-card h2,
+.services-overview-heading h2,
+.service-category-card h3,
+.founders-preview-content h2,
+.cases-header h2,
+.luxury-text h2,
+.page-section h2 {
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+/* =========================================================
+   FOOTER RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .footer {
+    padding: 55px 38px 28px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .footer {
+    width: calc(100% - 20px);
+
+    margin-bottom: 10px;
+    padding: 45px 24px 24px;
+
+    border-radius: 22px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 42px;
+
+    padding-bottom: 40px;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-logo img {
+    width: 72px;
+    height: 72px;
+  }
+
+  .footer-logo strong {
+    font-size: 32px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .footer-legal {
+    flex-wrap: wrap;
+  }
+
+}
+
+
+
+
+
+
+
+
+/* =========================================================
+   FOUNDERS PREVIEW – TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .founders-preview-inner {
+    grid-template-columns: minmax(0, 1fr) 190px;
+
+    gap: 35px;
+
+    padding: 52px 45px;
+  }
+
+  .founders-preview-decoration span {
+    font-size: 160px;
+  }
+
+}
+
+
+/* =========================================================
+   FOUNDERS PREVIEW – MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .founders-preview {
+    width: min(100% - 28px, 1320px);
+
+    padding-bottom: 70px;
+  }
+
+  .founders-preview-inner {
+    min-height: auto;
+
+    display: block;
+
+    padding: 42px 26px;
+
+    border-radius: 22px;
+  }
+
+  .founders-preview-number {
+    position: static;
+
+    margin-bottom: 20px;
+
+    font-size: 58px;
+  }
+
+  .founders-preview-content h2 {
+    font-size: 50px;
+  }
+
+  .founders-preview-content p {
+    font-size: 14px;
+  }
+
+  .founders-preview-link {
+    width: 100%;
+  }
+
+  .founders-preview-decoration {
+    display: none;
+  }
+
+}
+@media (max-width: 700px) {
+
+  .luxury-ending {
+    min-height: 620px;
+
+    padding: 0 28px 65px;
+
+    background-position: 60% top;
+  }
+
+  .luxury-text h2 {
+    font-size: clamp(42px, 12vw, 58px);
+    line-height: 0.98;
+  }
+
+  .luxury-text p {
+    margin-top: 22px;
+
+    font-size: 14px;
+  }
+
+}
