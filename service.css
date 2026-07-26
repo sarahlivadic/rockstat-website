@@ -71,55 +71,61 @@ a {
 
 .page-wrapper {
   position: relative;
-  width: 100%;
   min-height: 100vh;
-  overflow: hidden;
   isolation: isolate;
-
-  background: var(--background);
+  background: #111312;
 }
 
 .page-wrapper::before {
+
   content: "";
+
   position: fixed;
   inset: 0;
+
   z-index: -2;
 
   background:
-    linear-gradient(
-      to bottom,
-      rgba(165, 178, 168, 0.46),
-      rgba(48, 58, 50, 0.62)
-    ),
-    url("media/luxury4.jpg");
 
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-
-  filter: saturate(0.88) brightness(0.92);
-}
-
-.page-wrapper::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-
-  background:
     radial-gradient(
-      circle at 18% 14%,
-      rgba(239, 224, 187, 0.1),
-      transparent 32%
+      circle at 85% 8%,
+      rgba(212,165,96,.10),
+      transparent 28%
     ),
+
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(24,55,66,.30),
+      transparent 42%
+    ),
+
     linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.025),
-      rgba(17, 19, 18, 0.24)
+      180deg,
+      #1b252d 0%,
+      #151d24 25%,
+      #10171d 65%,
+      #0b1116 100%
     );
 }
 
+.page-wrapper::after {
+
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,.06),
+      rgba(25,33,27,.18)
+    );
+}
 /* =========================================================
    NAVBAR
    ========================================================= */
@@ -299,7 +305,7 @@ a {
       rgba(7, 18, 27, 0.14) 68%,
       rgba(7, 18, 27, 0.03) 100%
     ),
-    url("media/dubai.mp4");
+    url("media/worldmap.jpg");
 
   background-size: cover;
   background-position: center 58%;
@@ -368,7 +374,7 @@ a {
   color: #f7f3ea;
 
   font-family: "Bodoni Moda", serif;
-  font-size: clamp(56px, 5.6vw, 86px);
+   font-size: clamp(42px, 4.2vw, 66px);
   font-weight: 400;
   line-height: 0.94;
 
@@ -641,7 +647,7 @@ a {
   color: #ffffff;
 
   font-family: "Bodoni Moda", serif;
-  font-size: clamp(54px, 5.7vw, 88px);
+  font-size: clamp(44px, 3.4vw, 62px);
   font-weight: 400;
   line-height: 0.90;
 
@@ -888,7 +894,7 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 20px;
 
-  background: rgba(14, 25, 21, 0.68);
+  background: rgba(9, 11, 37, 0.68);
 
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -1166,5 +1172,918 @@ a {
 
   .detail-card {
     padding: 26px 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   FOUNDERS PAGE
+   OVAJ DIO IDE NA KRAJ service.css
+   ========================================================= */
+
+
+/* =========================================================
+   FOUNDERS HERO
+   ========================================================= */
+
+.founders-hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 720px;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 175px 70px 90px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 18, 27, 0.90) 0%,
+      rgba(7, 18, 27, 0.68) 42%,
+      rgba(7, 18, 27, 0.28) 72%,
+      rgba(7, 18, 27, 0.10) 100%
+    ),
+    url("media/founders-hero.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.founders-hero::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5, 13, 20, 0.04) 0%,
+      rgba(5, 13, 20, 0.08) 60%,
+      #151d24 100%
+    );
+}
+
+.founders-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 78% 32%,
+      rgba(213, 157, 66, 0.12),
+      transparent 34%
+    );
+}
+
+.founders-hero-content {
+  position: relative;
+  z-index: 3;
+
+  width: min(900px, 100%);
+}
+
+.founders-hero-content h1 {
+  max-width: 880px;
+
+  margin-top: 24px;
+
+  color: #f7f3ea;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(52px, 5.7vw, 86px);
+  font-weight: 400;
+  line-height: 0.93;
+
+  letter-spacing: -0.05em;
+
+  text-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.38);
+}
+
+.founders-hero-content h1 em {
+  display: block;
+
+  color: #d7a447;
+
+  font-style: italic;
+  font-weight: 400;
+}
+
+.founders-hero-content > p {
+  max-width: 650px;
+
+  margin-top: 28px;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 16px;
+  line-height: 1.8;
+
+  text-shadow:
+    0 2px 13px rgba(0, 0, 0, 0.36);
+}
+
+.founders-hero-content .primary-button {
+  margin-top: 34px;
+}
+
+
+/* =========================================================
+   FOUNDERS INTRO
+   ========================================================= */
+
+.founders-intro {
+  width: min(980px, calc(100% - 44px));
+
+  margin: 0 auto;
+  padding: 125px 0 75px;
+
+  text-align: center;
+}
+
+.founders-intro .section-label {
+  justify-content: center;
+}
+
+.founders-intro h2 {
+  max-width: 850px;
+
+  margin: 24px auto 0;
+
+  color: #ffffff;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(44px, 4.8vw, 70px);
+  font-weight: 400;
+  line-height: 0.96;
+
+  letter-spacing: -0.045em;
+}
+
+.founders-intro > p {
+  max-width: 690px;
+
+  margin: 28px auto 0;
+
+  color: rgba(255, 255, 255, 0.70);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   FOUNDERS SECTION
+   ========================================================= */
+
+.founders-section {
+  width: min(1260px, calc(100% - 44px));
+
+  margin: 0 auto;
+  padding: 35px 0 120px;
+}
+
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 30px;
+}
+
+
+/* =========================================================
+   FLIP CARD
+   ========================================================= */
+
+.founder-card {
+  position: relative;
+
+  min-width: 0;
+  height: 720px;
+
+  perspective: 1600px;
+
+  outline: none;
+  cursor: pointer;
+}
+
+.founder-card-inner {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform 0.85s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.founder-card:hover .founder-card-inner,
+.founder-card:focus .founder-card-inner,
+.founder-card:focus-within .founder-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+/* =========================================================
+   FRONT AND BACK
+   ========================================================= */
+
+.founder-card-face {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 28px;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   FRONT
+   ========================================================= */
+
+.founder-card-front {
+  background: #10191e;
+}
+
+.founder-card-front img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center top;
+
+  filter:
+    saturate(0.84)
+    brightness(0.86);
+
+  transition:
+    transform 0.85s ease,
+    filter 0.6s ease;
+}
+
+.founder-card:hover .founder-card-front img {
+  transform: scale(1.045);
+
+  filter:
+    saturate(0.94)
+    brightness(0.92);
+}
+
+.founder-front-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(7, 18, 27, 0.04) 0%,
+      rgba(7, 18, 27, 0.08) 40%,
+      rgba(7, 18, 27, 0.72) 72%,
+      rgba(7, 18, 27, 0.96) 100%
+    );
+}
+
+.founder-front-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 2;
+
+  padding: 45px;
+}
+
+.founder-role {
+  display: inline-block;
+
+  color: #ead49b;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.founder-front-content h2 {
+  max-width: 520px;
+
+  margin-top: 15px;
+
+  color: #ffffff;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(43px, 4vw, 62px);
+  font-weight: 400;
+  line-height: 0.94;
+
+  letter-spacing: -0.045em;
+}
+
+.founder-front-content > p {
+  max-width: 460px;
+
+  margin-top: 17px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.founder-card-hint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 30px;
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.founder-card-hint strong {
+  color: #ead49b;
+
+  font-size: 20px;
+  font-weight: 400;
+
+  transition: transform 0.3s ease;
+}
+
+.founder-card:hover .founder-card-hint strong {
+  transform: translate(4px, -4px);
+}
+
+
+/* =========================================================
+   BACK
+   ========================================================= */
+
+.founder-card-back {
+  display: flex;
+  flex-direction: column;
+
+  padding: 45px;
+
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      circle at 88% 12%,
+      rgba(213, 157, 66, 0.15),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(27, 45, 52, 0.98),
+      rgba(8, 20, 26, 1)
+    );
+
+  transform: rotateY(180deg);
+}
+
+.founder-back-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.founder-number {
+  color: rgba(234, 212, 155, 0.22);
+
+  font-family: "Bodoni Moda", serif;
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 0.75;
+}
+
+.founder-back-content {
+  margin-top: 55px;
+}
+
+.founder-back-content h2 {
+  color: #ffffff;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(40px, 3.8vw, 58px);
+  font-weight: 400;
+  line-height: 0.95;
+
+  letter-spacing: -0.04em;
+}
+
+.founder-back-content p {
+  margin-top: 21px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.founder-back-content ul {
+  display: grid;
+  gap: 8px;
+
+  margin-top: 28px;
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+
+  list-style: none;
+}
+
+.founder-back-content li {
+  position: relative;
+
+  padding-left: 18px;
+
+  color: rgba(255, 255, 255, 0.74);
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.founder-back-content li::before {
+  content: "";
+
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #ead49b;
+}
+
+
+/* =========================================================
+   CONTACT LINK ON BACK
+   ========================================================= */
+
+.founder-contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: auto;
+  padding-top: 22px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.founder-contact-link span {
+  color: #ead49b;
+
+  font-size: 19px;
+
+  transition: transform 0.3s ease;
+}
+
+.founder-contact-link:hover span {
+  transform: translate(4px, -4px);
+}
+
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.founder-card:focus-visible {
+  outline: 2px solid #ead49b;
+  outline-offset: 7px;
+
+  border-radius: 28px;
+}
+
+
+/* =========================================================
+   SHARED VISION
+   ========================================================= */
+
+.founders-vision {
+  width: min(1120px, calc(100% - 44px));
+
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  align-items: start;
+
+  gap: 55px;
+
+  margin: 20px auto 120px;
+  padding: 70px;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.09),
+      rgba(14, 31, 27, 0.32)
+    );
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  box-shadow:
+    0 25px 65px rgba(0, 0, 0, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.founders-vision-number {
+  color: rgba(234, 212, 155, 0.28);
+
+  font-family: "Bodoni Moda", serif;
+  font-size: 104px;
+  line-height: 0.78;
+}
+
+.founders-vision-content h2 {
+  max-width: 720px;
+
+  margin-top: 22px;
+
+  color: #ffffff;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(42px, 4.4vw, 66px);
+  font-weight: 400;
+  line-height: 0.94;
+
+  letter-spacing: -0.045em;
+}
+
+.founders-vision-content p {
+  max-width: 700px;
+
+  margin-top: 26px;
+
+  color: rgba(255, 255, 255, 0.70);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   FOUNDERS CTA
+   ========================================================= */
+
+.founders-cta {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   FOUNDERS RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .founders-hero {
+    min-height: 680px;
+
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+
+  .founder-card {
+    height: 670px;
+  }
+
+  .founder-front-content,
+  .founder-card-back {
+    padding: 35px;
+  }
+
+  .founder-back-content {
+    margin-top: 40px;
+  }
+
+  .founders-vision {
+    grid-template-columns: 120px minmax(0, 1fr);
+
+    gap: 40px;
+
+    padding: 55px;
+  }
+
+  .founders-vision-number {
+    font-size: 82px;
+  }
+
+}
+
+
+/* =========================================================
+   FOUNDERS RESPONSIVE — SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .founders-grid {
+    grid-template-columns: 1fr;
+
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .founder-card {
+    height: 720px;
+  }
+
+  .founders-vision {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .founders-vision-number {
+    font-size: 72px;
+  }
+
+}
+
+
+/* =========================================================
+   FOUNDERS RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .founders-hero {
+    min-height: 660px;
+
+    align-items: flex-end;
+
+    padding: 140px 22px 65px;
+
+    background-position: 62% center;
+  }
+
+  .founders-hero-content h1 {
+    font-size: clamp(45px, 13vw, 62px);
+  }
+
+  .founders-hero-content > p {
+    font-size: 14px;
+  }
+
+  .founders-hero-content .primary-button {
+    width: auto;
+  }
+
+  .founders-intro {
+    width: calc(100% - 32px);
+
+    padding: 90px 0 55px;
+  }
+
+  .founders-intro h2 {
+    font-size: clamp(39px, 11vw, 52px);
+  }
+
+  .founders-section {
+    width: calc(100% - 28px);
+
+    padding-bottom: 90px;
+  }
+
+  .founder-card {
+    height: 650px;
+  }
+
+  .founder-card-face {
+    border-radius: 22px;
+  }
+
+  .founder-front-content,
+  .founder-card-back {
+    padding: 28px;
+  }
+
+  .founder-front-content h2 {
+    font-size: 43px;
+  }
+
+  .founder-back-content {
+    margin-top: 32px;
+  }
+
+  .founder-back-content h2 {
+    font-size: 39px;
+  }
+
+  .founder-back-content p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .founders-vision {
+    width: calc(100% - 28px);
+
+    margin-bottom: 90px;
+    padding: 40px 27px;
+
+    border-radius: 22px;
+  }
+
+  .founders-vision-content h2 {
+    font-size: clamp(38px, 11vw, 50px);
+  }
+
+}
+
+
+/* =========================================================
+   FOUNDERS RESPONSIVE — SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .founders-hero {
+    min-height: 620px;
+
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .founder-card {
+    height: 620px;
+  }
+
+  .founder-front-content,
+  .founder-card-back {
+    padding: 24px;
+  }
+
+  .founder-front-content h2 {
+    font-size: 38px;
+  }
+
+  .founder-back-top {
+    align-items: center;
+  }
+
+  .founder-number {
+    font-size: 58px;
+  }
+
+  .founder-back-content {
+    margin-top: 25px;
+  }
+
+  .founder-back-content h2 {
+    font-size: 34px;
+  }
+
+  .founder-back-content p {
+    margin-top: 15px;
+
+    font-size: 12px;
+  }
+
+  .founder-back-content ul {
+    margin-top: 20px;
+    padding-top: 19px;
+  }
+
+  .founder-back-content li {
+    font-size: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .founder-card-inner,
+  .founder-card-front img,
+  .founder-card-hint strong,
+  .founder-contact-link span {
+    transition: none;
+  }
+
+
+}
+
+
+/* =========================================================
+   FOUNDERS PAGE WITHOUT HERO
+   ========================================================= */
+
+.founders-intro {
+  width: min(980px, calc(100% - 44px));
+
+  margin: 0 auto;
+
+  padding: 190px 0 75px;
+
+  text-align: center;
+}
+
+.founders-intro h1 {
+  max-width: 850px;
+
+  margin: 24px auto 0;
+
+  color: #f7f3ea;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(52px, 5.5vw, 78px);
+  font-weight: 400;
+  line-height: 0.94;
+
+  letter-spacing: -0.045em;
+}
+
+.founders-intro h2 {
+  max-width: 760px;
+
+  margin: 20px auto 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(32px, 3vw, 46px);
+  font-weight: 400;
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 760px) {
+  .founders-intro {
+    width: calc(100% - 32px);
+
+    padding: 140px 0 55px;
+  }
+
+  .founders-intro h1 {
+    font-size: clamp(44px, 13vw, 60px);
+  }
+
+  .founders-intro h2 {
+    font-size: clamp(28px, 9vw, 38px);
   }
 }
