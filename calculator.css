@@ -1,60 +1,393 @@
 /* =========================================================
-   ROCKSTAT — DARK LUXURY CALCULATOR
+   ROCKSTAT — CALCULATOR PAGE
+   Usklađeno sa index stranicom
    calculator.css
    ========================================================= */
 
-
 /* =========================================================
-   VARIABLES
+   RESET + DESIGN SYSTEM
    ========================================================= */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
-  --calculator-bg: #071014;
-  --calculator-bg-deep: #040a0d;
-  --calculator-panel: #0b171c;
-  --calculator-panel-soft: #0e1d22;
+  --background: #111312;
+  --surface: rgba(27, 30, 28, 0.88);
+  --surface-solid: #1a1d1b;
+  --surface-soft: rgba(255, 255, 255, 0.055);
 
-  --calculator-text: #f3f0e8;
-  --calculator-muted: rgba(243, 240, 232, 0.64);
+  --text: #f4f4ef;
+  --muted: #b7bbb6;
 
-  --calculator-gold: #c9933e;
-  --calculator-gold-light: #e4c27c;
+  --accent: #01046a;
+  --accent-gold: #d7a447;
+  --accent-light: #efe0bb;
 
-  --calculator-border: rgba(255, 255, 255, 0.10);
-  --calculator-border-strong: rgba(228, 194, 124, 0.34);
+  --border: rgba(255, 255, 255, 0.13);
+  --shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+
+  --calculator-bg: #111312;
+  --calculator-bg-deep: #0b1116;
+  --calculator-panel: rgba(14, 26, 33, 0.82);
+  --calculator-panel-soft: rgba(19, 34, 42, 0.72);
+
+  --calculator-text: #f4f4ef;
+  --calculator-muted: rgba(244, 244, 239, 0.66);
+
+  --calculator-gold: #d7a447;
+  --calculator-gold-light: #ead49b;
+
+  --calculator-border: rgba(255, 255, 255, 0.13);
+  --calculator-border-strong: rgba(234, 212, 155, 0.38);
 
   --calculator-card:
     linear-gradient(
       145deg,
-      rgba(15, 31, 37, 0.96),
-      rgba(6, 17, 22, 0.98)
+      rgba(255, 255, 255, 0.085),
+      rgba(9, 23, 29, 0.52)
     );
 
   --calculator-card-hover:
     linear-gradient(
       145deg,
-      rgba(20, 40, 46, 0.98),
-      rgba(8, 21, 26, 1)
+      rgba(255, 255, 255, 0.13),
+      rgba(9, 23, 29, 0.67)
     );
 
   --calculator-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.46);
+    0 30px 80px rgba(0, 0, 0, 0.32);
 
   --calculator-shadow-hover:
-    0 26px 58px rgba(0, 0, 0, 0.42);
+    0 26px 58px rgba(0, 0, 0, 0.28);
 
-  --calculator-radius-large: 6px;
-  --calculator-radius-medium: 4px;
-  --calculator-radius-small: 3px;
+  --calculator-radius-large: 28px;
+  --calculator-radius-medium: 16px;
+  --calculator-radius-small: 12px;
 }
 
-
-/* =========================================================
-   PAGE FONT
-   ========================================================= */
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
 
 body {
+  min-height: 100vh;
+
+  color: var(--text);
+  background: var(--background);
+
   font-family: "Manrope", sans-serif;
+  font-weight: 400;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: "Manrope", sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+/* =========================================================
+   ISTA GLOBALNA POZADINA KAO NA INDEX STRANICI
+   Možeš u HTML-u koristiti .page-wrapper ili .calculator-page
+   ========================================================= */
+
+.page-wrapper,
+.calculator-page {
+  position: relative;
+
+  min-height: 100vh;
+
+  isolation: isolate;
+  overflow-x: hidden;
+
+  background: #111312;
+}
+
+.page-wrapper::before,
+.calculator-page::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: -2;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 85% 8%,
+      rgba(212, 165, 96, 0.10),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(24, 55, 66, 0.30),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #1b252d 0%,
+      #151d24 25%,
+      #10171d 65%,
+      #0b1116 100%
+    );
+}
+
+.page-wrapper::after,
+.calculator-page::after {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.06),
+      rgba(25, 33, 27, 0.18)
+    );
+}
+
+.page-wrapper > *,
+.calculator-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.main-content {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* =========================================================
+   NAVIGATION — ISTA KAO NA INDEX STRANICI
+   ========================================================= */
+
+.navbar {
+  position: relative;
+  z-index: 100;
+
+  width: calc(100% - 56px);
+  min-height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+
+  margin: 22px 28px 0;
+  padding: 12px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+
+  background: rgba(7, 18, 27, 0.08);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  min-width: max-content;
+}
+
+.brand img {
+  position: relative;
+  z-index: 5;
+
+  width: 105px;
+  height: 105px;
+
+  margin-top: -24px;
+  margin-bottom: -24px;
+
+  object-fit: contain;
+}
+
+.brand-text,
+.brand > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand strong,
+.brand span {
+  display: block;
+}
+
+.brand strong {
+  color: #ffffff;
+
+  font-family: "Bodoni Moda", "Cormorant Garamond", serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.brand span {
+  margin-top: 4px;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(22px, 2.7vw, 42px);
+}
+
+.navbar nav a {
+  position: relative;
+
+  padding: 8px 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 17px;
+  font-weight: 500;
+
+  transition: color 0.25s ease;
+}
+
+.navbar nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -7px;
+
+  height: 1px;
+
+  background: var(--accent);
+
+  transition: right 0.25s ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+  color: #ffffff;
+}
+
+.navbar nav a:hover::after,
+.navbar nav a.active::after {
+  right: 0;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  min-width: max-content;
+}
+
+.language {
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.nav-button {
+  min-height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 18px;
+
+  border: 0;
+  border-radius: 10px;
+
+  color: #111111;
+  background: #f3f1e9;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+}
+
+.menu-toggle {
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  place-items: center;
+  gap: 5px;
+
+  padding: 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+
+  background: rgba(7, 18, 27, 0.22);
+
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 1px;
+
+  display: block;
+
+  background: #ffffff;
+}
+
+/* =========================================================
+   RAZMAK ISPOD NAVIGACIJE
+   ========================================================= */
+
+.calculate-section {
+  padding-top: 76px;
 }
 
 
@@ -69,13 +402,12 @@ body {
   width: min(1400px, calc(100% - 44px));
 
   margin: 0 auto;
-  padding: 120px 0;
+  padding: 80px 0 120px;
 
   color: var(--calculator-text);
 
   background: transparent;
 }
-
 
 /* =========================================================
    MAIN WRAPPER
@@ -97,11 +429,14 @@ body {
   border-radius: var(--calculator-radius-large);
 
   background:
-    linear-gradient(
-      135deg,
-      rgba(7, 17, 21, 0.99),
-      rgba(3, 10, 13, 0.99)
-    );
+  linear-gradient(
+    135deg,
+    rgba(13, 28, 35, 0.78),
+      rgba(8, 18, 24, 0.88)
+  );
+
+backdrop-filter: blur(18px);
+-webkit-backdrop-filter: blur(18px);
 
   box-shadow:
     var(--calculator-shadow),
@@ -131,9 +466,9 @@ body {
   background:
     linear-gradient(
       160deg,
-      rgba(13, 31, 37, 0.98) 0%,
-      rgba(6, 18, 23, 0.99) 48%,
-      rgba(4, 12, 16, 1) 100%
+      rgba(19, 36, 44, 0.80) 0%,
+      rgba(13, 27, 34, 0.86) 48%,
+      rgba(9, 20, 26, 0.92) 100%
     );
 }
 
@@ -438,8 +773,8 @@ body {
   background:
     linear-gradient(
       150deg,
-      rgba(8, 20, 25, 0.99),
-      rgba(3, 11, 15, 1)
+      rgba(15, 31, 39, 0.82),
+      rgba(8, 19, 25, 0.92)
     );
 }
 
@@ -1457,4 +1792,420 @@ body.calculate-modal-open {
     transition: none;
   }
 
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  position: relative;
+  z-index: 5;
+
+  width: min(1450px, calc(100% - 36px));
+
+  margin: 0 auto 18px;
+  padding: 70px 65px 28px;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 17, 28, 0.9),
+      rgba(11, 57, 84, 0.78)
+    );
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  color: #ffffff;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.5fr) 0.7fr 1fr;
+  gap: 80px;
+
+  padding-bottom: 55px;
+}
+
+/* BREND */
+
+.footer-brand {
+  max-width: 480px;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-logo img {
+  width: 92px;
+  height: 92px;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+}
+
+.footer-logo strong,
+.footer-logo span {
+  display: block;
+}
+
+.footer-logo strong {
+  font-family: "Cormorant Garamond", "Playfair Display", serif;
+
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 0.95;
+}
+
+.footer-logo span {
+  margin-top: 8px;
+
+  color: #ead49b;
+
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.footer-brand > p {
+  max-width: 430px;
+
+  margin-top: 28px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* KOLONE */
+
+.footer-column h3 {
+  margin-bottom: 25px;
+
+  color: #ead49b;
+
+  font-family: "Cormorant Garamond", "Playfair Display", serif;
+
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.footer-navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.footer-navigation a {
+  position: relative;
+
+  color: rgba(255, 255, 255, 0.74);
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.footer-navigation a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* KONTAKT */
+
+.footer-email {
+  display: inline-block;
+
+  color: #ffffff;
+
+  text-decoration: none;
+  overflow-wrap: anywhere;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  transition: color 0.25s ease;
+}
+
+.footer-email:hover {
+  color: #ead49b;
+}
+
+.footer-column > p {
+  margin-top: 16px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.footer-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+
+  margin-top: 28px;
+  padding-bottom: 7px;
+
+  border-bottom: 1px solid rgba(234, 212, 155, 0.55);
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.footer-contact-link:hover {
+  color: #ead49b;
+  border-color: #ead49b;
+}
+
+/* DONJA LINIJA */
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.52);
+
+  font-size: 12px;
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.footer-legal a {
+  color: rgba(255, 255, 255, 0.55);
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  transition: color 0.25s ease;
+}
+
+.footer-legal a:hover {
+  color: #ffffff;
+}
+
+
+
+
+
+/* =========================================================
+   LUXURY EDITORIAL TYPOGRAPHY
+   ========================================================= */
+
+.brand strong,
+.hero-heading h1,
+.hero-service-card h2,
+.intro-text-card h2,
+.services-overview-heading h2,
+.service-category-card h3,
+.founders-preview-content h2,
+.cases-header h2,
+.luxury-text h2,
+.page-section h2,
+.footer-logo strong,
+.footer-column h3 {
+  font-family: "Bodoni Moda", serif;
+}
+
+.hero-service-card h2,
+.intro-text-card h2,
+.services-overview-heading h2,
+.service-category-card h3,
+.founders-preview-content h2,
+.cases-header h2,
+.luxury-text h2,
+.page-section h2 {
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+/* =========================================================
+   FOOTER RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .footer {
+    padding: 55px 38px 28px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .footer {
+    width: calc(100% - 20px);
+
+    margin-bottom: 10px;
+    padding: 45px 24px 24px;
+
+    border-radius: 22px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 42px;
+
+    padding-bottom: 40px;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-logo img {
+    width: 72px;
+    height: 72px;
+  }
+
+  .footer-logo strong {
+    font-size: 32px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .footer-legal {
+    flex-wrap: wrap;
+  }
+
+}
+
+
+/* =========================================================
+   NAVIGATION RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1180px) {
+  .navbar {
+    gap: 22px;
+  }
+
+  .navbar nav {
+    gap: 18px;
+  }
+
+  .navbar nav a {
+    font-size: 14px;
+  }
+
+  .brand-text,
+  .brand > div {
+    display: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .navbar nav,
+  .nav-right {
+    display: none;
+  }
+
+  .brand-text,
+  .brand > div {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: grid;
+  }
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    width: calc(100% - 28px);
+
+    margin: 14px 14px 0;
+    padding: 10px 14px;
+
+    border-radius: 14px;
+  }
+
+  .brand img {
+    width: 78px;
+    height: 78px;
+
+    margin-top: -18px;
+    margin-bottom: -18px;
+  }
+
+  .brand strong {
+    font-size: 21px;
+  }
+
+  .calculate-section {
+    padding-top: 48px;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .brand span {
+    display: none;
+  }
 }
