@@ -58,29 +58,36 @@ img {
 }
 
 .page-wrapper::before {
-  content: "";
 
-  position: fixed;
-  inset: 0;
+    content:"";
 
-  z-index: -2;
+    position:fixed;
+    inset:0;
 
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(18, 1, 30, 0.5),
-      rgba(10, 11, 10, 0.5)
+    z-index:-2;
+
+    background:
+
+    radial-gradient(
+        circle at 85% 8%,
+        rgba(196, 149, 79, 0.1),
+        transparent 28%
     ),
-    url("media/palm2.jpg");
 
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
+    radial-gradient(
+        circle at 15% 80%,
+        rgba(24,55,66,.30),
+        transparent 42%
+    ),
 
-  filter:
-    saturate(0.88)
-    brightness(0.92)
-    blur(0.6px);
+    linear-gradient(
+        180deg,
+        #1b252d 0%,
+        #151d24 25%,
+        #10171d 65%,
+        #0b1116 100%
+    );
+
 }
 
 .page-wrapper::after {
@@ -287,10 +294,10 @@ font-weight:500;
       rgba(7, 18, 27, 0.14) 68%,
       rgba(7, 18, 27, 0.03) 100%
     ),
-    url("media/palm2.jpg");
+    url("media/avion10.jpg");
 
   background-size: cover;
-  background-position: center 58%;
+  background-position: 50% center;
   background-repeat: no-repeat;
 
   margin: 0;
@@ -302,26 +309,29 @@ font-weight:500;
    MEKI GRADIENT NA KRAJU HERO SLIKE
    ========================================================= */
 
-.hero::after {
-  content: "";
+.hero::after{
+    content:"";
 
-  position: absolute;
-  inset: 0;
+    position:absolute;
+    inset:0;
 
-  z-index: 2;
+    z-index:2;
+    pointer-events:none;
 
-  pointer-events: none;
+    background:
+        linear-gradient(
+            to bottom,
 
-  background:
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      transparent 65%,
-      rgba(20, 29, 36, 0.08) 80%,
-      rgba(20, 29, 36, 0.20) 90%,
-      rgba(20, 29, 36, 0.38) 96%,
-      #141d24 100%
-    );
+            rgba(0,0,0,0) 0%,
+            rgba(0,0,0,0) 68%,
+
+            rgba(16,24,31,.08) 76%,
+            rgba(16,24,31,.22) 84%,
+            rgba(16,24,31,.45) 90%,
+            rgba(16,24,31,.72) 96%,
+
+            #111a21 100%
+        );
 }
 /* =========================================================
    HERO CONTAINER
@@ -357,21 +367,19 @@ font-weight:500;
 /* =========================================================
    HERO CONTENT
    ========================================================= */
+.hero-content{
+    position:relative;
+    z-index:3;
 
-.hero-content {
-  position: relative;
-  z-index: 3;
+    min-height:820px;
 
-  min-height: 820px;
+    display:grid;
+    grid-template-columns:720px 340px;
 
-  display: grid;
-  grid-template-columns: minmax(0, 760px) 340px;
-  justify-content: space-between;
-  align-items: center;
+    justify-content:space-between;
+    align-items:end;
 
-  gap: 70px;
-
-  padding: 100px 70px 70px;
+    padding:190px 70px 90px;
 }
 
 
@@ -381,15 +389,15 @@ font-weight:500;
 
 .hero-copy {
   width: 100%;
-  max-width: 720px;
+  max-width: 760px;
 
-  margin: 0;
+  margin-left: -35px;
 }
-
 .hero-kicker {
   display: inline-block;
 
   margin-bottom: 30px;
+  margin-left:2px;
 
   color: rgba(255, 255, 255, 0.88);
 
@@ -408,16 +416,16 @@ font-weight:500;
 
 .hero-heading h1 {
   width: 100%;
-  max-width: 720px;
+  max-width: 760px;
 
   margin: 0;
 
   color: #f7f3ea;
 
   font-family: "Bodoni Moda", serif;
-  font-size: clamp(58px, 5vw, 82px);
-  font-weight: 400;
-  line-height: 0.98;
+  font-size:clamp(48px,4vw,68px);
+line-height:1.02;
+max-width:620px;
 
   letter-spacing: -0.04em;
 
@@ -428,9 +436,8 @@ font-weight:500;
 .hero-line {
   display: block;
 }
-
-.hero-line + .hero-line {
-  margin-top: 2px;
+.hero-line + .hero-line{
+    margin-top:-6px;
 }
 
 .hero-line-accent {
@@ -441,16 +448,16 @@ font-weight:500;
 }
 
 .hero-copy > p {
-  max-width: 560px;
+   max-width: 560px;
 
-  margin-top: 32px;
+  margin-top: 24px;
 
   color: rgba(255, 255, 255, 0.79);
 
   font-family: "Manrope", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.85;
+  line-height: 1.7;
 
   letter-spacing: 0.01em;
 
@@ -470,12 +477,13 @@ font-weight:500;
 
   gap: 28px;
 
-  margin-top: 34px;
+      margin-top:28px;
+
 }
 
 .primary-button {
-  min-width: 220px;
-  min-height: 56px;
+    min-width:190px;
+    min-height:52px;
 
   display: inline-flex;
   align-items: center;
@@ -532,101 +540,6 @@ font-weight:500;
 }
 
 
-/* =========================================================
-   HERO DESNA KARTICA
-   ========================================================= */
-
-.hero-service-card {
-  position: relative;
-  align-self: center;
-
-  width: 100%;
-
-  margin-top: 20px;
-  padding: 34px;
-
-  border:
-    1px solid rgba(255, 255, 255, 0.18);
-border-radius: 2px;
-
-  background:
-  linear-gradient(
-    145deg,
-    rgba(10, 19, 22, 0.48),
-    rgba(9, 17, 20, 0.28)
-  );
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.hero-service-card .mini-label {
-  color: #fff0c7;
-
-  font-size: 11px;
-  font-weight: 700;
-
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.hero-service-card h2,
-.hero-service-card h3 {
-  .hero-service-card h2 {
-  margin: 20px 0 0;
-
-  color: #ffffff;
-
-  font-family: "Bodoni Moda", serif;
-  font-size: 42px;
-  font-weight: 400;
-  line-height: 0.98;
-
-  letter-spacing: -0.04em;
-}
-}
-
-.hero-service-card p {
-  margin-top: 18px;
-
-  color: rgba(255, 255, 255, 0.78);
-
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-.hero-service-card a {
-  width: 100%;
-  min-height: 56px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin-top: 28px;
-  padding: 0 18px;
-
-  border-radius: 12px;
-
-  background: #ffffff;
-  color: #171714;
-
-  text-decoration: none;
-
-  font-size: 13px;
-  font-weight: 700;
-
-  transition: transform 0.25s ease;
-}
-
-.hero-service-card a:hover {
-  transform: translateY(-2px);
-}
-
 
 
 /* =========================================================
@@ -636,46 +549,75 @@ border-radius: 2px;
 .intro-section {
   position: relative;
 
-  margin-top: -1px;
-  padding: 90px 0 0;
+  margin-top: -110px;
+  padding: 170px 5% 90px;
+
+  overflow: hidden;
 
   background:
     linear-gradient(
       to bottom,
-      #10181e 0%,
-      #141d24 35%,
+      rgba(16, 24, 30, 0) 0%,
+      rgba(16, 24, 30, 0.62) 16%,
+      #10181e 34%,
       #141d24 100%
     );
 }
 
 
-/* MEKI PRELAZ IZ HERO SLIKE */
+/* =========================================================
+   MEKI PRIJELAZ IZ HERO SLIKE
+   ========================================================= */
 
 .intro-section::before {
   content: "";
 
   position: absolute;
-  top: -130px;
+  top: 0;
   left: 0;
   right: 0;
 
-  height: 220px;
+  height: 240px;
 
   pointer-events: none;
 
   background:
     linear-gradient(
       to bottom,
-      transparent 0%,
-      rgba(16, 24, 30, 0.18) 25%,
-      rgba(16, 24, 30, 0.52) 55%,
-      rgba(16, 24, 30, 0.84) 80%,
+      rgba(16, 24, 30, 0) 0%,
+      rgba(16, 24, 30, 0.18) 18%,
+      rgba(16, 24, 30, 0.48) 48%,
+      rgba(16, 24, 30, 0.82) 76%,
       #10181e 100%
     );
 }
 
+
+/* SUptilan svjetlosni efekt iza kartica */
+
 .intro-section::after {
-  content: none;
+  content: "";
+
+  position: absolute;
+  top: 170px;
+  right: -180px;
+
+  width: 650px;
+  height: 650px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(215, 164, 71, 0.12) 0%,
+      rgba(215, 164, 71, 0.05) 34%,
+      transparent 70%
+    );
+
+  filter: blur(25px);
 }
 
 
@@ -687,30 +629,32 @@ border-radius: 2px;
   position: relative;
   z-index: 2;
 
-  width: 100%;
+  width: min(1320px, 100%);
+  margin: 0 auto;
 
   display: grid;
   grid-template-columns:
-    minmax(0, 1.15fr)
-    minmax(360px, 0.72fr);
+    minmax(0, 1.2fr)
+    minmax(340px, 0.72fr);
 
-  gap: 22px;
-
-  margin: 0;
+  align-items: stretch;
+  gap: 24px;
 }
+
+
 /* =========================================================
    INTRO CARDS
    ========================================================= */
 
 .intro-image-card,
 .intro-text-card {
-  min-height: 560px;
+  min-height: 470px;
 
   border-radius: 24px;
   overflow: hidden;
 
   box-shadow:
-    0 20px 45px rgba(0, 0, 0, 0.18);
+    0 26px 70px rgba(0, 0, 0, 0.28);
 }
 
 
@@ -720,6 +664,9 @@ border-radius: 2px;
 
 .intro-image-card {
   position: relative;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.10);
 }
 
 .intro-image-card img {
@@ -729,6 +676,7 @@ border-radius: 2px;
   display: block;
 
   object-fit: cover;
+  object-position: center;
 }
 
 .intro-image-card::after {
@@ -740,9 +688,9 @@ border-radius: 2px;
   background:
     linear-gradient(
       to top,
-      rgba(6, 8, 8, 0.66) 0%,
-      rgba(6, 8, 8, 0.05) 55%,
-      transparent 100%
+      rgba(7, 13, 17, 0.72) 0%,
+      rgba(7, 13, 17, 0.18) 45%,
+      transparent 75%
     );
 }
 
@@ -754,25 +702,28 @@ border-radius: 2px;
 .image-badge {
   position: absolute;
 
-  left: 28px;
-  bottom: 28px;
+  right: 24px;
+  bottom: 24px;
 
   z-index: 2;
 
-  min-width: 180px;
+  min-width: 165px;
 
-  padding: 18px 22px;
+  padding: 15px 19px;
 
   border:
-    1px solid rgba(255, 255, 255, 0.12);
+    1px solid rgba(255, 255, 255, 0.13);
 
-  border-radius: 18px;
+  border-radius: 15px;
 
   background:
-    rgba(12, 23, 25, 0.78);
+    rgba(10, 20, 24, 0.62);
 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.20);
 }
 
 .image-badge strong {
@@ -785,19 +736,20 @@ border-radius: 2px;
     "Playfair Display",
     serif;
 
-  font-size: 30px;
+  font-size: 27px;
   font-weight: 500;
+  line-height: 1;
 }
 
 .image-badge span {
   display: block;
 
-  margin-top: 5px;
+  margin-top: 6px;
 
-  color: #c8c8c8;
+  color: rgba(255, 255, 255, 0.68);
 
-  font-size: 11px;
-  letter-spacing: 0.12em;
+  font-size: 10px;
+  letter-spacing: 0.14em;
 
   text-transform: uppercase;
 }
@@ -808,40 +760,72 @@ border-radius: 2px;
    ========================================================= */
 
 .intro-text-card {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  padding: 54px;
+  padding: 42px 40px;
 
   border:
-    1px solid rgba(255, 255, 255, 0.14);
+    1px solid rgba(255, 255, 255, 0.13);
 
   background:
     linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.10),
-      rgba(255, 255, 255, 0.04)
+      rgba(255, 255, 255, 0.085),
+      rgba(255, 255, 255, 0.025)
     );
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
+
+
+/* tanki zlatni detalj iza teksta */
+
+.intro-text-card::before {
+  content: "";
+
+  position: absolute;
+  top: 34px;
+  right: 34px;
+
+  width: 80px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(215, 164, 71, 0),
+      rgba(215, 164, 71, 0.62)
+    );
+}
+
+
+/* =========================================================
+   INTRO CARD TOP
+   ========================================================= */
 
 .intro-card-top {
   display: flex;
   align-items: center;
 
-  gap: 16px;
+  gap: 14px;
 
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .section-number {
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
 
-  flex: 0 0 48px;
+  flex: 0 0 42px;
 
   display: grid;
   place-items: center;
@@ -853,7 +837,7 @@ border-radius: 2px;
 
   color: #ead49b;
 
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
 }
 
@@ -862,15 +846,22 @@ border-radius: 2px;
 
   color: #d8ba74;
 
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.17em;
+  letter-spacing: 0.18em;
 
   text-transform: uppercase;
 }
 
+
+/* =========================================================
+   INTRO TYPOGRAPHY
+   ========================================================= */
+
 .intro-text-card h2 {
-  margin: 0 0 24px;
+  max-width: 420px;
+
+  margin: 0 0 20px;
 
   color: #ffffff;
 
@@ -879,29 +870,34 @@ border-radius: 2px;
     "Playfair Display",
     serif;
 
-  font-size: clamp(48px, 4.6vw, 68px);
-font-weight: 400;
-line-height: 0.95;
+  font-size: clamp(42px, 4vw, 58px);
+  font-weight: 400;
+  line-height: 0.96;
 
   letter-spacing: -0.03em;
 }
 
 .intro-text-card p {
-  max-width: 520px;
+  max-width: 440px;
 
-  margin: 0 0 18px;
+  margin: 0 0 15px;
 
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(255, 255, 255, 0.72);
 
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: 14px;
+  line-height: 1.75;
 }
 
 .intro-text-card .intro-lead {
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.90);
 
-  font-size: 16px;
+  font-size: 15px;
 }
+
+
+/* =========================================================
+   INTRO LINK
+   ========================================================= */
 
 .card-link {
   width: fit-content;
@@ -909,59 +905,44 @@ line-height: 0.95;
   display: inline-flex;
   align-items: center;
 
-  gap: 18px;
+  gap: 16px;
 
-  margin-top: 18px;
-  padding-bottom: 6px;
+  margin-top: 14px;
+  padding-bottom: 5px;
 
   color: #ffffff;
 
   border-bottom:
-    1px solid rgba(255, 255, 255, 0.30);
+    1px solid rgba(255, 255, 255, 0.28);
 
   text-decoration: none;
 
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
 
   transition:
     color 0.25s ease,
-    border-color 0.25s ease;
+    border-color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .card-link:hover {
   color: #ead49b;
   border-color: #ead49b;
+
+  transform: translateX(4px);
 }
 
 
 /* =========================================================
-   RESPONSIVE — TABLET
+   RESPONSIVE
    ========================================================= */
 
-@media (max-width: 1000px) {
-
-  .hero-content {
-    min-height: auto;
-
-    grid-template-columns: 1fr;
-
-    gap: 35px;
-
-    padding: 90px 40px 80px;
-  }
-
-  .hero-service-card {
-    max-width: 430px;
-
-    margin-top: 0;
-  }
+@media (max-width: 980px) {
 
   .intro-section {
-    width: min(100% - 36px, 1320px);
-
-    margin: 0 auto;
-    padding: 36px 0 80px;
+    margin-top: -70px;
+    padding: 130px 22px 70px;
   }
 
   .intro-grid {
@@ -970,85 +951,43 @@ line-height: 0.95;
 
   .intro-image-card,
   .intro-text-card {
-    min-height: 520px;
-  }
-
-}
-
-
-/* =========================================================
-   RESPONSIVE — MOBILE
-   ========================================================= */
-
-@media (max-width: 650px) {
-
-  .hero {
     min-height: auto;
-
-    background-position: 62% center;
-  }
-
-  .hero-container {
-    width: min(100% - 28px, 1450px);
-  }
-
-  .hero-content {
-    min-height: auto;
-
-    padding: 105px 10px 70px;
-  }
-
-  .hero-heading h1 {
-    font-size: clamp(42px, 14vw, 58px);
-  }
-
-  .hero-copy > p {
-    font-size: 15px;
-  }
-
-  .hero-actions {
-    align-items: flex-start;
-    flex-direction: column;
-
-    gap: 20px;
-  }
-
-  .hero-service-card {
-    padding: 27px;
-  }
-
-  .intro-section {
-    width: min(100% - 28px, 1320px);
-
-    margin: 0 auto;
-    padding: 28px 0 70px;
-  }
-
-  .intro-grid {
-    grid-template-columns: 1fr;
-
-    gap: 16px;
   }
 
   .intro-image-card {
-    min-height: 430px;
+    height: 430px;
   }
 
   .intro-text-card {
-    min-height: auto;
+    padding: 38px 32px;
+  }
+}
 
-    padding: 36px 28px;
+
+@media (max-width: 600px) {
+
+  .intro-section {
+    margin-top: -45px;
+    padding: 100px 16px 60px;
+  }
+
+  .intro-image-card {
+    height: 340px;
+  }
+
+  .intro-image-card,
+  .intro-text-card {
+    border-radius: 18px;
+  }
+
+  .intro-text-card {
+    padding: 32px 24px;
   }
 
   .intro-text-card h2 {
-    font-size: 44px;
+    font-size: 42px;
   }
-
 }
-/* =========================================================
-   SERVICES OVERVIEW
-   ========================================================= */
-
 /* =========================================================
    SERVICES OVERVIEW
    ========================================================= */
@@ -1057,7 +996,7 @@ line-height: 0.95;
   position: relative;
 
   margin-top: -2px;
-  padding: 120px 0;
+  padding: 115px 5% 125px;
 
   overflow: hidden;
 }
@@ -1085,10 +1024,28 @@ line-height: 0.95;
     );
 }
 
+
+/* OGRANIČAVA ŠIRINU SADRŽAJA */
+
+.services-overview-heading,
+.services-overview-grid,
+.services-overview-bottom {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* NASLOV SEKCIJE */
+
 .services-overview-heading {
   max-width: 860px;
 
-  margin: 0 auto 60px;
+  margin-bottom: 55px;
 
   text-align: center;
 }
@@ -1111,8 +1068,8 @@ line-height: 0.95;
 
   font-family: "Cormorant Garamond", "Playfair Display", serif;
   font-size: clamp(52px, 5.7vw, 82px);
-    font-weight: 400;
-    line-height: 0.94;
+  font-weight: 400;
+  line-height: 0.94;
   letter-spacing: -0.03em;
 
   text-shadow: 0 3px 20px rgba(0, 0, 0, 0.25);
@@ -1129,34 +1086,37 @@ line-height: 0.95;
   line-height: 1.8;
 }
 
-/* KARTICE */
+
+/* =========================================================
+   KARTICE
+   ========================================================= */
 
 .services-overview-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  gap: 20px;
 }
 
 .service-category-card {
   position: relative;
 
-  min-height: 430px;
+  min-height: 405px;
 
   display: flex;
   flex-direction: column;
 
-  padding: 34px 30px;
+  padding: 24px;
 
   overflow: hidden;
 
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 24px;
+  border-radius: 22px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.11),
-      rgba(14, 31, 27, 0.3)
+      rgba(255, 255, 255, 0.1),
+      rgba(14, 31, 27, 0.34)
     );
 
   backdrop-filter: blur(15px);
@@ -1177,15 +1137,15 @@ line-height: 0.95;
 }
 
 .service-category-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-7px);
 
   border-color: rgba(234, 212, 155, 0.48);
 
   background:
     linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.15),
-      rgba(14, 31, 27, 0.4)
+      rgba(255, 255, 255, 0.14),
+      rgba(14, 31, 27, 0.42)
     );
 
   box-shadow:
@@ -1193,45 +1153,87 @@ line-height: 0.95;
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* BROJ */
 
-.service-number {
-  width: 52px;
-  height: 52px;
+/* =========================================================
+   SLIKA U KARTICI
+   ========================================================= */
 
-  display: grid;
-  place-items: center;
+.service-card-image {
+  position: relative;
 
-  border-radius: 50%;
+  height: 125px;
 
-  background: #f4f2ec;
-  color: #111820;
+  margin: -10px -10px 22px;
 
-  font-size: 13px;
-  font-weight: 700;
+  overflow: hidden;
+
+  border-radius: 16px;
 }
+
+.service-card-image::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(10, 20, 23, 0.68),
+      rgba(10, 20, 23, 0.06) 65%
+    );
+}
+
+.service-card-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  filter:
+    saturate(0.78)
+    brightness(0.82);
+
+  transition:
+    transform 0.5s ease,
+    filter 0.4s ease;
+}
+
+.service-category-card:hover .service-card-image img {
+  transform: scale(1.05);
+
+  filter:
+    saturate(0.9)
+    brightness(0.9);
+}
+
+
+
 
 /* NASLOV */
 
 .service-category-card h3 {
-  margin-top: 48px;
+  margin-top: 0;
 
   color: #ffffff;
 
   font-family: "Cormorant Garamond", "Playfair Display", serif;
-  font-size: 37px;
-font-weight: 400;
-  line-height: 1.05;
+  font-size: clamp(30px, 2.15vw, 37px);
+  font-weight: 400;
+  line-height: 1;
   letter-spacing: -0.02em;
 }
+
 
 /* LISTA */
 
 .service-category-card ul {
   display: grid;
-  gap: 11px;
+  gap: 9px;
 
-  margin-top: 24px;
+  margin-top: 20px;
   padding: 0;
 
   list-style: none;
@@ -1240,19 +1242,19 @@ font-weight: 400;
 .service-category-card li {
   position: relative;
 
-  padding-left: 18px;
+  padding-left: 17px;
 
   color: rgba(255, 255, 255, 0.74);
 
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .service-category-card li::before {
   content: "";
 
   position: absolute;
-  top: 0.68em;
+  top: 0.66em;
   left: 0;
 
   width: 5px;
@@ -1263,6 +1265,7 @@ font-weight: 400;
   background: #ead49b;
 }
 
+
 /* DONJI LINK */
 
 .service-card-link {
@@ -1271,7 +1274,7 @@ font-weight: 400;
   justify-content: space-between;
 
   margin-top: auto;
-  padding-top: 28px;
+  padding-top: 22px;
 
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 
@@ -1292,6 +1295,7 @@ font-weight: 400;
   transform: translate(3px, -3px);
 }
 
+
 /* DONJI CTA */
 
 .services-overview-bottom {
@@ -1310,44 +1314,20 @@ font-weight: 400;
   font-size: 15px;
 }
 
-/* SADRŽAJ IZNAD GRADIENTA */
-
-.services-overview-heading,
-.services-overview-grid,
-.services-overview-bottom {
-  position: relative;
-  z-index: 2;
-}
 
 /* =========================================================
    RESPONSIVE
    ========================================================= */
 
-@media (max-width: 1100px) {
-
+@media (max-width: 1200px) {
   .services-overview-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
 }
 
-@media (max-width: 650px) {
-
+@media (max-width: 700px) {
   .services-overview {
-    width: min(100% - 28px, 1320px);
-    padding: 60px 0 90px;
-  }
-
-  .services-overview-heading {
-    margin-bottom: 40px;
-  }
-
-  .services-overview-heading h2 {
-    font-size: clamp(40px, 12vw, 58px);
-  }
-
-  .services-overview-heading p {
-    font-size: 15px;
+    padding: 90px 20px 100px;
   }
 
   .services-overview-grid {
@@ -1357,224 +1337,430 @@ font-weight: 400;
   .service-category-card {
     min-height: 390px;
   }
-
-  .services-overview-bottom {
-    align-items: stretch;
-    flex-direction: column;
-
-    text-align: center;
-  }
-
-  .services-overview-bottom .primary-button {
-    width: 100%;
-  }
-
 }
-
 /* =========================================================
    FOUNDERS PREVIEW
-   USKLAĐENO SA OSTATKOM STRANICE
    ========================================================= */
-/* =========================================================
-   FOUNDERS PREVIEW
-   MEKI PRIJELAZ PREMA LUXURY SLICI
-   ========================================================= */
-.founders-preview {
-  position: relative;
-  z-index: 2;
 
-  width: calc(100% - 32px);
-  max-width: 1760px;
+.founders-preview{
+    position:relative;
+    z-index:2;
 
-  margin: 100px auto 0;
-  padding: 0;
+    width:min(1200px,calc(100% - 80px));
 
-  background: transparent;
+    margin:80px auto 0;
 }
 
-/* BLAGI SJAJ ISPOD FOUNDERS KARTICE */
+.founders-preview::after{
+    content:"";
 
-.founders-preview::after {
-  content: "";
+    position:absolute;
+    left:50%;
+    bottom:-90px;
 
-  position: absolute;
-  z-index: -1;
+    width:850px;
+    height:180px;
 
-  left: 50%;
-  bottom: -110px;
+    transform:translateX(-50%);
 
-  width: min(1050px, 90vw);
-  height: 260px;
+    background:
+    radial-gradient(circle,
+    rgba(234,212,155,.08),
+    transparent 70%);
 
-  transform: translateX(-50%);
+    filter:blur(30px);
 
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(55, 83, 70, 0.28) 0%,
-      rgba(19, 35, 30, 0.15) 38%,
-      transparent 72%
-    );
-
-  filter: blur(24px);
+    pointer-events:none;
 }
 
 
 /* =========================================================
-   GLAVNA FOUNDERS KARTICA
+   CARD
    ========================================================= */
 
-.founders-preview-inner {
-  position: relative;
+.founders-preview-inner{
 
-  min-height: 420px;
+    position:relative;
 
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
-  align-items: center;
+    min-height:300px;
 
-  gap: 70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-  padding: 70px 100px;
+    padding:70px 90px;
 
-  overflow: hidden;
+    overflow:hidden;
 
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 28px;
+    border-radius:26px;
 
-  background:
+    border:1px solid rgba(255,255,255,.08);
+
+    background:
     linear-gradient(
-      145deg,
-      rgba(54, 74, 67, 0.86),
-      rgba(17, 38, 31, 0.94)
+        135deg,
+        rgba(15,21,28,.86),
+        rgba(11,16,21,.93)
     );
 
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 
-  box-shadow:
-    0 24px 65px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-/* BLAGI ZLATNI SJAJ */
-
-.founders-preview-inner::before {
-  content: "";
-
-  position: absolute;
-
-  width: 380px;
-  height: 380px;
-
-  right: -170px;
-  top: -190px;
-
-  border: 1px solid rgba(234, 212, 155, 0.18);
-  border-radius: 50%;
-
-  pointer-events: none;
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.35),
+    inset 0 1px rgba(255,255,255,.05);
 }
 
 
-/* DONJI BLAGI SJAJ */
+/* diskretni krug */
 
-.founders-preview-inner::after {
-  content: "";
+.founders-preview-inner::before{
 
-  position: absolute;
+    content:"";
 
-  width: 260px;
-  height: 260px;
+    position:absolute;
 
-  right: 90px;
-  bottom: -180px;
+    width:430px;
+    height:430px;
 
-  border-radius: 50%;
+    right:-230px;
+    top:-220px;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(234, 212, 155, 0.09),
-      transparent 68%
-    );
+    border-radius:50%;
+    border:1px solid rgba(234,212,155,.10);
 
-  pointer-events: none;
+    pointer-events:none;
 }
+
+
+/* zlatni glow */
+
+.founders-preview-inner::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    left:50%;
+    bottom:-180px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(234,212,155,.07),
+    transparent 70%);
+
+    pointer-events:none;
+}
+
 
 
 /* =========================================================
-   BROJ 05
+   UKLONJENO
    ========================================================= */
 
-.founders-preview-number {
-  position: absolute;
+.founders-preview-number{
+    display:none;
+}
 
-  top: 42px;
-  right: 48px;
+.founders-preview-decoration{
+    display:none;
+}
 
-  z-index: 2;
 
-  color: rgba(234, 212, 155, 0.42);
 
-  font-family:
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.founders-preview-content{
+
+    position:relative;
+    z-index:2;
+
+    max-width:760px;
+
+    margin:auto;
+
+    text-align:center;
+}
+
+
+
+/* mali naslov */
+
+.founders-preview-content .small-title{
+
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+
+    color:#ead49b;
+
+    font-size:12px;
+    font-weight:700;
+
+    letter-spacing:.20em;
+    text-transform:uppercase;
+}
+
+.founders-preview-content .small-title::before,
+.founders-preview-content .small-title::after{
+
+    content:"";
+
+    width:34px;
+    height:1px;
+
+    background:#ead49b;
+}
+
+
+
+/* naslov */
+
+.founders-preview-content h2{
+
+    margin:22px 0 0;
+
+    color:#fff;
+
+    font-family:
     "Cormorant Garamond",
     "Playfair Display",
     serif;
 
-  font-size: 72px;
-  font-weight: 600;
-  line-height: 1;
+    font-size:clamp(52px,5vw,72px);
+
+    font-weight:500;
+
+    line-height:.95;
+
+    letter-spacing:-.03em;
 }
+
+.founders-preview-content h2 em{
+
+    color:#ead49b;
+
+    font-style:italic;
+}
+
+
+
+/* opis */
+
+.founders-preview-content p{
+
+    max-width:650px;
+
+    margin:22px auto 0;
+
+    color:rgba(255,255,255,.72);
+
+    font-size:17px;
+
+    line-height:1.8;
+}
+
 
 
 /* =========================================================
-   SADRŽAJ
+   BUTTON
    ========================================================= */
 
-.founders-preview-content {
-  position: relative;
-  z-index: 3;
+.founders-preview-link{
 
-  max-width: 720px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:18px;
+
+    margin-top:38px;
+
+    padding:0 34px;
+
+    height:56px;
+
+    border-radius:14px;
+
+    background:#f5f2ea;
+
+    color:#111;
+
+    font-size:14px;
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.founders-preview-link:hover{
+
+    background:#ffffff;
+
+    transform:translateY(-3px);
+}
+
+.founders-preview-arrow{
+
+    transition:.3s;
+}
+
+.founders-preview-link:hover
+.founders-preview-arrow{
+
+    transform:translate(3px,-3px);
+}
+
+/* =========================================================
+   CASES SECTION
+   ========================================================= */
+
+.cases-section {
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+
+  margin-top: -2px;
+  padding: 170px 0 120px;
+
+  overflow: hidden;
+
+  color: #ffffff;
+
+  /* ne postavljamo novu nijansu koja pravi liniju */
+  background: transparent;
+  transform: translateY(-1px);
 }
 
 
-/* MALI NASLOV */
 
-.founders-preview-content .small-title {
-  display: inline-flex;
-  align-items: center;
+/* DODATNO ZATAMNJENJE I LUKSUZNI EFEKT */
 
-  gap: 12px;
+/* =========================================================
+   POZADINSKA SLIKA
+   ========================================================= */
+.cases-section::before {
+  content: "";
+
+  position: absolute;
+
+  /*
+    Slika počinje iznad stvarnog ruba sekcije,
+    tako da nema oštrog reza.
+  */
+  top: -140px;
+  right: 0;
+  bottom: -140px;
+  left: 0;
+
+  z-index: -2;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+
+      /* potpuno ista približna boja wrappera iznad */
+      #151d24 0%,
+
+      rgba(21, 29, 36, 0.98) 5%,
+      rgba(21, 29, 36, 0.88) 10%,
+      rgba(21, 29, 36, 0.62) 16%,
+      rgba(21, 29, 36, 0.30) 23%,
+      rgba(21, 29, 36, 0.08) 30%,
+
+      rgba(11, 20, 27, 0.18) 68%,
+      rgba(11, 17, 22, 0.50) 80%,
+      rgba(11, 17, 22, 0.82) 91%,
+
+      /* odgovara donjem dijelu wrapper gradijenta */
+      #0b1116 100%
+    ),
+    url("media/pool2.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transform: scale(1.01);
+}
+
+/* =========================================================
+   MEKO STAPANJE GORNJEG I DONJEG RUBA
+   ========================================================= */
+
+.cases-section::after {
+  content: "";
+
+  position: absolute;
+
+  top: -2px;
+  right: 0;
+  bottom: -2px;
+  left: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+
+      rgba(21, 29, 36, 1) 0%,
+      rgba(21, 29, 36, 0.94) 4%,
+      rgba(21, 29, 36, 0.72) 9%,
+      rgba(21, 29, 36, 0.38) 15%,
+      rgba(21, 29, 36, 0.10) 22%,
+      transparent 30%,
+
+      transparent 70%,
+
+      rgba(11, 17, 22, 0.10) 78%,
+      rgba(11, 17, 22, 0.38) 86%,
+      rgba(11, 17, 22, 0.72) 93%,
+      #0b1116 100%
+    );
+}
+/* =========================================================
+   CASES HEADER
+   ========================================================= */
+
+.cases-header {
+  position: relative;
+  z-index: 3;
+
+  width: min(760px, calc(100% - 40px));
+
+  margin: 0 auto 52px;
+
+  text-align: center;
+}
+
+.cases-header .section-kicker {
+  display: block;
 
   color: #ead49b;
 
   font-size: 12px;
   font-weight: 700;
-
-  letter-spacing: 0.18em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
 }
 
-.founders-preview-content .small-title::before {
-  content: "";
-
-  width: 32px;
-  height: 1px;
-
-  background: #ead49b;
-}
-
-
-/* GLAVNI NASLOV */
-
-.founders-preview-content h2 {
-  max-width: 600px;
-
-  margin-top: 22px;
+.cases-header h2 {
+  margin: 18px 0 20px;
 
   color: #ffffff;
 
@@ -1583,292 +1769,431 @@ font-weight: 400;
     "Playfair Display",
     serif;
 
-  font-size: clamp(48px, 4.5vw, 70px);
-  font-weight: 500;
+  font-size: clamp(54px, 5.6vw, 78px);
+  font-weight: 400;
   line-height: 0.95;
-
   letter-spacing: -0.035em;
+
+  text-shadow: 0 5px 24px rgba(0, 0, 0, 0.28);
 }
 
-.founders-preview-content h2 em {
-  display: inline;
+.cases-header p {
+  max-width: 650px;
+
+  margin: 0 auto;
+
+  color: rgba(255, 255, 255, 0.76);
+
+  font-size: 16px;
+  line-height: 1.75;
+
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   CASES MARQUEE
+   ========================================================= */
+
+.cases-marquee {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  padding: 20px 0 38px;
+
+  cursor: grab;
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  touch-action: pan-y;
+}
+
+.cases-marquee.is-dragging {
+  cursor: grabbing;
+}
+
+
+/* MEKI NESTANAK KARTICA NA RUBOVIMA */
+
+.cases-marquee::before,
+.cases-marquee::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  z-index: 6;
+
+  width: 7%;
+
+  pointer-events: none;
+}
+
+.cases-marquee::before {
+  left: 0;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(10, 20, 26, 0.95),
+      rgba(10, 20, 26, 0.55) 35%,
+      transparent 100%
+    );
+}
+
+.cases-marquee::after {
+  right: 0;
+
+  background:
+    linear-gradient(
+      to left,
+      rgba(10, 20, 26, 0.95),
+      rgba(10, 20, 26, 0.55) 35%,
+      transparent 100%
+    );
+}
+
+
+/* =========================================================
+   CASES TRACK
+   ========================================================= */
+
+.cases-track {
+  display: flex;
+  align-items: stretch;
+  gap: 18px;
+
+  width: max-content;
+
+  padding-left: 18px;
+
+  will-change: transform;
+}
+
+.cases-marquee.is-dragging .case-card {
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   UKLANJANJE SLIKA I LOGOTIPA IZ KARTICA
+   ========================================================= */
+
+.case-background,
+.case-overlay,
+.case-logo-wrapper {
+  display: none;
+}
+
+
+/* =========================================================
+   CASE CARD
+   ========================================================= */
+
+.case-card {
+  position: relative;
+
+  width: 265px;
+  min-width: 265px;
+  height: 310px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 26px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 21px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(9, 23, 29, 0.6)
+    );
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  color: #ffffff;
+  text-decoration: none;
+
+  box-shadow:
+    0 22px 48px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* DISKRETNI SJAJ U KARTICI */
+
+.case-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(234, 212, 155, 0.12),
+      transparent 42%
+    );
+
+  opacity: 0.7;
+
+  transition: opacity 0.35s ease;
+}
+
+
+/* =========================================================
+   TEKST U KARTICI
+   ========================================================= */
+
+.case-info {
+  position: relative;
+  inset: auto;
+
+  z-index: 2;
+
+  width: 100%;
+}
+
+.case-category {
+  display: block;
+
+  margin-bottom: 16px;
 
   color: #ead49b;
 
-  font-weight: 500;
-}
-
-
-/* OPIS */
-
-.founders-preview-content p {
-  max-width: 650px;
-
-  margin-top: 24px;
-
-  color: rgba(255, 255, 255, 0.8);
-
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.75;
-}
-
-
-/* =========================================================
-   DUGME
-   ========================================================= */
-
-.founders-preview-link {
-  min-width: 225px;
-  min-height: 56px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 28px;
-
-  margin-top: 32px;
-  padding: 0 20px;
-
-  border: 0;
-  border-radius: 12px;
-
-  color: #111111;
-  background: #f4f3ed;
-
-  text-decoration: none;
-
-  font-size: 13px;
+  font-size: 10px;
   font-weight: 700;
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
 }
 
-.founders-preview-link:hover {
-  color: #111111;
-  background: #ffffff;
+.case-info h3 {
+  margin: 0;
 
-  transform: translateY(-2px);
-}
-
-.founders-preview-arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 18px;
-
-  transition: transform 0.25s ease;
-}
-
-.founders-preview-link:hover .founders-preview-arrow {
-  transform: translate(2px, -2px);
-}
-
-
-/* =========================================================
-   DESNA DEKORATIVNA STRANA
-   ========================================================= */
-
-.founders-preview-decoration {
-  position: relative;
-  z-index: 2;
-
-  min-height: 250px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-left: 1px solid rgba(255, 255, 255, 0.13);
-}
-
-.founders-preview-decoration span {
-  color: rgba(255, 255, 255, 0.055);
+  color: #ffffff;
 
   font-family:
     "Cormorant Garamond",
     "Playfair Display",
     serif;
 
-  font-size: 210px;
-  font-weight: 600;
-  line-height: 0.75;
-
-  user-select: none;
-}
-
-/* =========================================================
-   CASES
-   ========================================================= */
-
-.cases-section {
-  position: relative;
-
-  padding: 120px 6%;
-
-  color: white;
-  background: transparent;
-
-  overflow: hidden;
-}
-
-/* =========================================================
-   CASES → LUXURY IMAGE TRANSITION
-   ========================================================= */
-
-
-
-.cases-header {
-  max-width: 760px;
-
-  margin: 0 auto 70px;
-
-  text-align: center;
-}
-
-.cases-header span {
-  color: #c9a86a;
-
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 4px;
-}
-
-.cases-header h2 {
-  margin: 18px 0 22px;
-
-  font-family: "Playfair Display", serif;
-  font-size: 64px;
-}
-
-.cases-header p {
-  color: #e4e4e4;
-
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-.cases-slider {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-
-  overflow-x: auto;
-
-  padding: 35px 20px 55px;
-
-  scroll-behavior: smooth;
-}
-
-.case-card {
-  position: relative;
-
-  width: 320px;
-  min-width: 320px;
-  height: 420px;
-
-  border-radius: 24px;
-
-  overflow: hidden;
-
-  background: #2a2838;
-
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-
-  cursor: pointer;
-}
-
-.case-card img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  display: block;
-
-  transition:
-    transform 0.35s ease,
-    filter 0.35s ease;
-}
-
-.case-card::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  z-index: 1;
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(15, 14, 25, 0.9),
-      rgba(15, 14, 25, 0.15)
-    ),
-    linear-gradient(
-      135deg,
-      rgba(201, 168, 106, 0.25),
-      rgba(95, 62, 160, 0.25)
-    );
-}
-
-.case-info {
-  position: absolute;
-  z-index: 2;
-
-  left: 24px;
-  right: 24px;
-  bottom: 26px;
-}
-
-.case-info h3 {
-  margin-bottom: 10px;
-
-  font-size: 20px;
-  line-height: 1.3;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
 }
 
 .case-info p {
-  color: #e8e8e8;
+  margin-top: 14px;
 
-  font-size: 14px;
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 13px;
+  line-height: 1.55;
 }
+
+
+/* =========================================================
+   DONJI LINK
+   ========================================================= */
+
+.case-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 24px;
+  padding-top: 17px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.case-link strong {
+  color: #ead49b;
+
+  font-size: 18px;
+  font-weight: 400;
+
+  transition: transform 0.28s ease;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
 
 .case-card:hover {
-  transform: translateY(-18px) scale(1.04);
+  transform: translateY(-9px);
 
-  box-shadow: 0 35px 80px rgba(201, 168, 106, 0.35);
+  border-color: rgba(234, 212, 155, 0.5);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(9, 23, 29, 0.7)
+    );
+
+  box-shadow:
+    0 30px 65px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.13);
 }
 
-.case-card:hover img {
-  transform: scale(1.12);
-
-  filter: brightness(1.12);
+.case-card:hover::before {
+  opacity: 1;
 }
 
-.cases-slider::-webkit-scrollbar {
-  height: 8px;
+.case-card:hover .case-link strong {
+  transform: translate(3px, -3px);
 }
 
-.cases-slider::-webkit-scrollbar-track {
-  border-radius: 20px;
 
-  background: rgba(255, 255, 255, 0.08);
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.case-card:focus-visible {
+  outline: 2px solid #ead49b;
+  outline-offset: 5px;
 }
 
-.cases-slider::-webkit-scrollbar-thumb {
-  border-radius: 20px;
 
-  background: #c9a86a;
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .cases-section {
+    padding: 95px 0 105px;
+
+    background-position: center;
+  }
+
+  .cases-header {
+    margin-bottom: 42px;
+  }
+
+  .case-card {
+    width: 245px;
+    min-width: 245px;
+    height: 290px;
+
+    padding: 23px;
+  }
+
+  .case-info h3 {
+    font-size: 26px;
+  }
+
+  .cases-marquee::before,
+  .cases-marquee::after {
+    width: 35px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .cases-section {
+    padding: 80px 0 90px;
+  }
+
+  .cases-header {
+    width: calc(100% - 32px);
+
+    margin-bottom: 32px;
+  }
+
+  .cases-header h2 {
+    font-size: clamp(48px, 15vw, 62px);
+  }
+
+  .cases-header p {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .cases-track {
+    gap: 14px;
+
+    padding-left: 14px;
+  }
+
+  .case-card {
+    width: 225px;
+    min-width: 225px;
+    height: 270px;
+
+    padding: 21px;
+
+    border-radius: 19px;
+  }
+
+  .case-category {
+    margin-bottom: 13px;
+
+    font-size: 9px;
+  }
+
+  .case-info h3 {
+    font-size: 24px;
+  }
+
+  .case-info p {
+    font-size: 12px;
+  }
+
+  .case-link {
+    margin-top: 19px;
+    padding-top: 15px;
+  }
+
+  .cases-marquee::before,
+  .cases-marquee::after {
+    width: 20px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .case-card,
+  .case-card::before,
+  .case-link strong {
+    transition: none;
+  }
 }
 /* =========================================================
    LUXURY IMAGE
@@ -1886,7 +2211,7 @@ font-weight: 400;
 
   border-radius: 28px;
 
-  background: url("media/dubainature2.jpg") center center / cover no-repeat;
+  background: url("media/earth3.jpg") center center / cover no-repeat;
 
   box-shadow:
     0 20px 45px rgba(0,0,0,.18),
@@ -2518,6 +2843,1361 @@ font-weight: 400;
     margin-top: 22px;
 
     font-size: 14px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   ABOUT PAGE
+   ========================================================= */
+
+.about-main {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   ABOUT HERO
+   ========================================================= */
+
+.about-hero {
+  position: relative;
+
+  min-height: 790px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 175px 7% 110px;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 18, 27, 0.82) 0%,
+      rgba(7, 18, 27, 0.58) 38%,
+      rgba(7, 18, 27, 0.20) 68%,
+      rgba(7, 18, 27, 0.06) 100%
+    ),
+    url("media/lunapark.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* diskretna mreža u pozadini */
+
+.about-hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -2;
+
+  opacity: 0.17;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.07) 1px,
+      transparent 1px
+    );
+
+  background-size: 90px 90px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 92%
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 92%
+    );
+}
+
+
+/* meki prijelaz prema sljedećoj sekciji */
+
+.about-hero::after {
+  content: "";
+
+  position: absolute;
+  right: 0;
+  bottom: -2px;
+  left: 0;
+
+  height: 220px;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(15, 23, 29, 0.44) 45%,
+      #0f171d 100%
+    );
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+   ========================================================= */
+
+.about-hero-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(20px);
+}
+
+.about-hero-glow-one {
+  top: -230px;
+  right: -170px;
+
+  width: 680px;
+  height: 680px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(215, 164, 71, 0.15),
+      rgba(215, 164, 71, 0.04) 42%,
+      transparent 72%
+    );
+}
+
+.about-hero-glow-two {
+  bottom: -320px;
+  left: -220px;
+
+  width: 760px;
+  height: 760px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(52, 112, 137, 0.23),
+      rgba(52, 112, 137, 0.05) 46%,
+      transparent 72%
+    );
+}
+
+
+/* =========================================================
+   ABOUT HERO GRID
+   ========================================================= */
+
+.about-hero-inner {
+  position: relative;
+  z-index: 2;
+
+  width: min(1420px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(340px, 0.7fr);
+
+  align-items: end;
+  gap: 100px;
+}
+
+
+/* =========================================================
+   ABOUT TYPOGRAPHY
+   ========================================================= */
+
+.about-kicker,
+.footprint-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+
+  color: #ead49b;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.about-kicker::before,
+.footprint-kicker::before {
+  content: "";
+
+  width: 42px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      #ead49b
+    );
+}
+
+.about-heading-column h1 {
+  max-width: 850px;
+
+  margin-top: 28px;
+
+  color: #f7f3ea;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(62px, 6.7vw, 112px);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+}
+
+.about-heading-column h1 em {
+  display: block;
+
+  color: #d8b66d;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   ABOUT COPY
+   ========================================================= */
+
+.about-copy-column {
+  position: relative;
+
+  max-width: 540px;
+
+  padding: 42px 0 8px 42px;
+
+  border-left:
+    1px solid rgba(255, 255, 255, 0.15);
+}
+
+.about-number {
+  position: absolute;
+  top: -4px;
+  left: 42px;
+
+  color: rgba(234, 212, 155, 0.66);
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.about-copy-column p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.66);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.about-copy-column .about-lead {
+  margin-bottom: 22px;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.about-text-link {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+
+  margin-top: 32px;
+  padding-bottom: 7px;
+
+  border-bottom:
+    1px solid rgba(234, 212, 155, 0.48);
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.about-text-link:hover {
+  color: #ead49b;
+  border-color: #ead49b;
+
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+   ========================================================= */
+
+.about-scroll-line {
+  position: absolute;
+  right: 7%;
+  bottom: 38px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.about-scroll-line i {
+  display: block;
+
+  width: 74px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.38),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   EXPERTISE STRIP
+   ========================================================= */
+
+.about-expertise {
+  position: relative;
+  z-index: 3;
+
+  padding: 20px 5% 100px;
+
+  background: transparent;
+}
+
+.about-expertise-inner {
+  width: min(1420px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.12);
+}
+
+.expertise-item {
+  min-height: 145px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 27px 25px;
+
+  border-right:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.expertise-item:last-child {
+  border-right: 0;
+}
+
+.expertise-item:hover {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.015)
+    );
+}
+
+.expertise-item span {
+  color: #d8b66d;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.expertise-item h2 {
+  max-width: 240px;
+
+  margin: 30px 0 0;
+
+  color: #f6f3ec;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(24px, 2vw, 34px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+
+/* =========================================================
+   GLOBAL FOOTPRINT SECTION
+   ========================================================= */
+
+.footprint-section {
+  position: relative;
+
+  padding: 90px 5% 125px;
+
+  overflow: hidden;
+}
+
+.footprint-section::before {
+  content: "";
+
+  position: absolute;
+  top: 40px;
+  left: 50%;
+
+  width: 900px;
+  height: 500px;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(215, 164, 71, 0.09),
+      transparent 68%
+    );
+
+  filter: blur(35px);
+}
+
+.footprint-header {
+  position: relative;
+  z-index: 2;
+
+  width: min(1420px, 100%);
+  margin: 0 auto 55px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 440px;
+
+  align-items: end;
+  gap: 80px;
+}
+
+.footprint-header h2 {
+  max-width: 820px;
+
+  margin-top: 22px;
+
+  color: #f7f3ea;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(54px, 5.8vw, 86px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+.footprint-header h2 em {
+  display: block;
+
+  color: #d8b66d;
+
+  font-weight: 400;
+}
+
+.footprint-header > p {
+  max-width: 440px;
+
+  color: rgba(255, 255, 255, 0.67);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   MAP FRAME
+   ========================================================= */
+
+.map-frame {
+  position: relative;
+  z-index: 3;
+
+  width: min(1500px, 100%);
+  min-height: 690px;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 28px;
+
+  background: #71bdd4;
+
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   MAP TOP BAR
+   ========================================================= */
+
+.map-topbar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  left: 20px;
+
+  z-index: 1000;
+
+  min-height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+
+  padding: 0 20px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.24);
+
+  border-radius: 14px;
+
+  background:
+    rgba(9, 22, 29, 0.78);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  box-shadow:
+    0 15px 38px rgba(0, 0, 0, 0.2);
+
+  pointer-events: none;
+}
+
+.map-status {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #d8b66d;
+
+  box-shadow:
+    0 0 0 6px rgba(216, 182, 109, 0.14);
+}
+
+.map-instruction {
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   LEAFLET MAP
+   ========================================================= */
+
+#global-map {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: #70bfd7;
+}
+
+
+/*
+  Ovim filterom standardna mapa dobija svjetliji,
+  plavo-bijeli izgled sličan referentnoj slici.
+*/
+
+#global-map .leaflet-tile-pane {
+  filter:
+    saturate(0.68)
+    contrast(0.9)
+    brightness(1.12);
+}
+
+#global-map .leaflet-control-attribution {
+  padding: 5px 9px;
+
+  border-radius: 8px 0 0 0;
+
+  color: rgba(12, 31, 39, 0.7);
+  background: rgba(255, 255, 255, 0.78);
+
+  font-size: 9px;
+}
+
+#global-map .leaflet-control-attribution a {
+  color: #183c48;
+}
+
+
+/* =========================================================
+   MAP ZOOM CONTROLS
+   ========================================================= */
+
+#global-map .leaflet-control-zoom {
+  margin-right: 22px;
+  margin-bottom: 22px;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.22);
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.18);
+}
+
+#global-map .leaflet-control-zoom a {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  color: #ffffff;
+  background: rgba(8, 23, 30, 0.86);
+
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  line-height: 42px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+#global-map .leaflet-control-zoom a:hover {
+  color: #ead49b;
+  background: rgba(8, 23, 30, 0.96);
+}
+
+
+/* =========================================================
+   CUSTOM MARKER
+   ========================================================= */
+
+.rockstat-map-marker {
+  position: relative;
+
+  background: transparent;
+  border: 0;
+}
+
+.marker-box {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid rgba(58, 27, 8, 0.55);
+
+  border-radius: 8px 8px 8px 2px;
+
+  color: #25160e;
+  background:
+    linear-gradient(
+      145deg,
+      #e9bc72,
+      #c9863b
+    );
+
+  box-shadow:
+    0 10px 22px rgba(41, 25, 15, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.38);
+
+  transform: rotate(-2deg);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.marker-box::after {
+  content: "";
+
+  position: absolute;
+  left: 4px;
+  bottom: -6px;
+
+  width: 11px;
+  height: 11px;
+
+  background: #c9863b;
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      0 100%
+    );
+}
+
+.marker-box span {
+  font-family: "Bodoni Moda", serif;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.marker-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 48px;
+  height: 48px;
+
+  border:
+    1px solid rgba(216, 182, 109, 0.55);
+
+  border-radius: 50%;
+
+  animation:
+    markerPulse 2.6s ease-out infinite;
+}
+
+.rockstat-map-marker:hover .marker-box {
+  transform:
+    rotate(0)
+    translateY(-4px)
+    scale(1.05);
+
+  box-shadow:
+    0 16px 30px rgba(41, 25, 15, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+@keyframes markerPulse {
+
+  0% {
+    opacity: 0.8;
+    transform: scale(0.55);
+  }
+
+  70% {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+
+}
+
+
+/* =========================================================
+   MAP POPUP
+   ========================================================= */
+
+#global-map .leaflet-popup-content-wrapper {
+  overflow: hidden;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 17px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 25, 33, 0.95),
+      rgba(16, 43, 54, 0.93)
+    );
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 24px 55px rgba(0, 0, 0, 0.35);
+}
+
+#global-map .leaflet-popup-content {
+  width: 210px !important;
+
+  margin: 0;
+  padding: 22px;
+}
+
+#global-map .leaflet-popup-tip {
+  background: #102b36;
+}
+
+#global-map .leaflet-popup-close-button {
+  top: 9px;
+  right: 9px;
+
+  width: 28px;
+  height: 28px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 20px;
+}
+
+#global-map .leaflet-popup-close-button:hover {
+  color: #ead49b;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.rockstat-popup {
+  font-family: "Manrope", sans-serif;
+}
+
+.popup-kicker {
+  display: block;
+
+  margin-bottom: 13px;
+
+  color: #ead49b;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.rockstat-popup strong {
+  display: block;
+
+  padding-right: 20px;
+
+  color: #ffffff;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: 29px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.rockstat-popup small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: rgba(255, 255, 255, 0.52);
+
+  font-size: 10px;
+}
+
+.rockstat-popup p {
+  margin: 15px 0 0;
+  padding-top: 13px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   MAP CORNER CARD
+   ========================================================= */
+
+.map-corner-card {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+
+  z-index: 900;
+
+  width: 210px;
+
+  padding: 22px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.23);
+
+  border-radius: 17px;
+
+  color: #ffffff;
+  background:
+    rgba(8, 25, 33, 0.82);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.24);
+
+  pointer-events: none;
+}
+
+.map-corner-card > span {
+  display: block;
+
+  color: #ead49b;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.map-corner-card strong {
+  display: block;
+
+  margin-top: 14px;
+
+  color: #ffffff;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: 55px;
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.map-corner-card p {
+  margin-top: 14px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   ABOUT CTA
+   ========================================================= */
+
+.about-cta {
+  position: relative;
+
+  padding: 80px 5% 140px;
+}
+
+.about-cta-inner {
+  position: relative;
+
+  width: min(1200px, 100%);
+  min-height: 430px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto;
+  padding: 70px;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.13);
+
+  border-radius: 28px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(23, 34, 42, 0.88),
+      rgba(8, 21, 28, 0.93)
+    );
+
+  box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.about-cta-inner::before {
+  content: "";
+
+  position: absolute;
+  top: -270px;
+  right: -200px;
+
+  width: 600px;
+  height: 600px;
+
+  border:
+    1px solid rgba(234, 212, 155, 0.11);
+
+  border-radius: 50%;
+}
+
+.about-cta-inner::after {
+  content: "";
+
+  position: absolute;
+  bottom: -300px;
+  left: -200px;
+
+  width: 620px;
+  height: 620px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(52, 112, 137, 0.2),
+      transparent 68%
+    );
+}
+
+.about-cta-inner > * {
+  position: relative;
+  z-index: 2;
+}
+
+.about-cta-inner h2 {
+  max-width: 900px;
+
+  margin: 25px auto 0;
+
+  color: #f7f3ea;
+
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(50px, 5.2vw, 76px);
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+}
+
+.about-cta-inner h2 em {
+  display: block;
+
+  color: #d8b66d;
+
+  font-weight: 400;
+}
+
+.about-cta-inner .primary-button {
+  margin-top: 38px;
+}
+
+
+/* =========================================================
+   ABOUT RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .about-hero {
+    min-height: auto;
+
+    padding: 180px 42px 120px;
+  }
+
+  .about-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 65px;
+  }
+
+  .about-heading-column h1 {
+    max-width: 780px;
+  }
+
+  .about-copy-column {
+    max-width: 650px;
+  }
+
+  .about-expertise-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .expertise-item:nth-child(2) {
+    border-right: 0;
+  }
+
+  .expertise-item:nth-child(-n + 2) {
+    border-bottom:
+      1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .footprint-header {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footprint-header > p {
+    max-width: 700px;
+  }
+
+  .map-frame {
+    min-height: 620px;
+  }
+
+}
+
+
+/* =========================================================
+   ABOUT RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .about-hero {
+    padding: 145px 20px 95px;
+  }
+
+  .about-heading-column h1 {
+    font-size: clamp(52px, 15vw, 72px);
+    line-height: 0.94;
+  }
+
+  .about-copy-column {
+    padding: 40px 0 0;
+
+    border-top:
+      1px solid rgba(255, 255, 255, 0.14);
+
+    border-left: 0;
+  }
+
+  .about-number {
+    top: 15px;
+    left: 0;
+  }
+
+  .about-copy-column .about-lead {
+    font-size: 16px;
+  }
+
+  .about-scroll-line {
+    display: none;
+  }
+
+  .about-expertise {
+    padding: 10px 16px 75px;
+  }
+
+  .about-expertise-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .expertise-item,
+  .expertise-item:nth-child(2) {
+    min-height: 125px;
+
+    border-right: 0;
+    border-bottom:
+      1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .expertise-item:last-child {
+    border-bottom: 0;
+  }
+
+  .footprint-section {
+    padding: 70px 16px 95px;
+  }
+
+  .footprint-header {
+    margin-bottom: 36px;
+  }
+
+  .footprint-header h2 {
+    font-size: clamp(48px, 14vw, 64px);
+  }
+
+  .map-frame {
+    min-height: 600px;
+
+    border-radius: 20px;
+  }
+
+  .map-topbar {
+    top: 12px;
+    right: 12px;
+    left: 12px;
+
+    min-height: 49px;
+
+    padding: 0 15px;
+  }
+
+  .map-instruction {
+    display: none;
+  }
+
+  .map-corner-card {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+
+    width: auto;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 18px;
+
+    padding: 16px 18px;
+  }
+
+  .map-corner-card > span {
+    grid-column: 1 / -1;
+
+    margin-bottom: 9px;
+  }
+
+  .map-corner-card strong {
+    margin: 0;
+
+    font-size: 45px;
+  }
+
+  .map-corner-card p {
+    margin: 0;
+  }
+
+  #global-map .leaflet-control-zoom {
+    margin-right: 13px;
+    margin-bottom: 145px;
+  }
+
+  .about-cta {
+    padding: 40px 16px 100px;
+  }
+
+  .about-cta-inner {
+    min-height: 400px;
+
+    padding: 60px 24px;
+
+    border-radius: 21px;
+  }
+
+  .about-cta-inner h2 {
+    font-size: clamp(45px, 13vw, 60px);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .marker-pulse {
+    display: none;
+  }
+
+  .marker-box,
+  .about-text-link,
+  .expertise-item {
+    transition: none;
   }
 
 }
