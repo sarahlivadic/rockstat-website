@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Our Founders | RockStat</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="media/logo2.png"
+  >
+
+  <!-- GOOGLE FONTS -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Manrope:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- ISTI CSS KAO SERVICES -->
+
+  <link rel="stylesheet" href="service.css">
+
+</head>
+
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+
+    <header class="navbar">
+
+      <a href="index.html" class="brand">
+
+        <img
+          src="media/logo2.png"
+          alt="RockStat Logo"
+        >
+
+        <div class="brand-text">
+
+          <strong>
+            RockStat
+          </strong>
+
+          <span>
+            Marketing Agency
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <nav class="main-nav" aria-label="Main navigation">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About Us
+        </a>
+
+        <a href="partners.html">
+          Partners
+        </a>
+
+        <a href="services.html">
+          Services
+        </a>
+
+        <a href="calculator.html">
+          Calculate Cost
+        </a>
+
+        <a href="contacts.html">
+          Contacts
+        </a>
+
+      </nav>
+
+
+      <a href="contacts.html" class="navbar-button">
+        Get in Touch
+      </a>
+
+    </header>
+
+
+    <main>
+
+      <!-- =====================================================
+           INTRO
+           ===================================================== -->
+
+      <section class="founders-intro">
+
+        <span class="section-label">
+          Leadership
+        </span>
+
+        <h2>
+          Why US?
+        </h2>
+
+        <p>
+          
+        Nobody builds a brand like someone who built their own.
+        Nobody drives attention like someone who lives off attention.
+        Nobody understands ROI like entrepreneurs whose revenue depends on it daily.
+        If someone has never built a business — they cannot scale yours.
+        </p>
+
+      </section>
+
+
+      <!-- =====================================================
+           FOUNDER CARDS
+           ===================================================== -->
+
+      <section class="founders-section" id="founders">
+
+        <div class="founders-grid">
+
+
+          <!-- FOUNDER 1 -->
+
+          <article
+            class="founder-card"
+            tabindex="0"
+            aria-label="Read more about Anton Naianzin"
+          >
+
+            <div class="founder-card-inner">
+
+
+              <!-- FRONT -->
+
+              <div class="founder-card-face founder-card-front">
+
+                <img
+                  src="media/anton.jpg"
+                  alt="Anton Naianzin, co-founder of RockStat"
+                >
+
+                <div class="founder-front-overlay"></div>
+
+                <div class="founder-front-content">
+
+                  <span class="founder-role">
+                    Co-Founder
+                  </span>
+
+                  <h2>
+                    Anton Naianzin
+                  </h2>
+
+                  <p>
+                    Strategy, media and business growth
+                  </p>
+
+                  <span class="founder-card-hint">
+                    Discover profile
+                    <strong aria-hidden="true">↗</strong>
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <!-- BACK -->
+
+              <div class="founder-card-face founder-card-back">
+
+                <div class="founder-back-top">
+
+                  <span class="founder-role">
+                    Co-Founder
+                  </span>
+
+                  <span class="founder-number">
+                    01
+                  </span>
+
+                </div>
+
+                <div class="founder-back-content">
+
+                  <h2>
+                    Anton Naianzin
+                  </h2>
+
+                  <p>
+                    Anton is an entrepreneur and marketing strategist
+                    with extensive experience in media, communication
+                    and commercial brand development.
+                  </p>
+
+                  <p>
+                    His work focuses on connecting visibility with
+                    measurable business results and building effective
+                    strategies for international market growth.
+                  </p>
+
+                  <ul>
+                    <li>International marketing strategy</li>
+                    <li>Media and communication</li>
+                    <li>Business development</li>
+                    <li>Brand positioning</li>
+                  </ul>
+
+                </div>
+
+                <a
+                  href="contacts.html"
+                  class="founder-contact-link"
+                >
+                  Start a conversation
+                  <span aria-hidden="true">↗</span>
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- FOUNDER 2 -->
+
+          <article
+            class="founder-card"
+            tabindex="0"
+            aria-label="Read more about the second RockStat founder"
+          >
+
+            <div class="founder-card-inner">
+
+
+              <!-- FRONT -->
+
+              <div class="founder-card-face founder-card-front">
+
+                <img
+                  src="media/founder2.jpg"
+                  alt="RockStat co-founder"
+                >
+
+                <div class="founder-front-overlay"></div>
+
+                <div class="founder-front-content">
+
+                  <span class="founder-role">
+                    Co-Founder
+                  </span>
+
+                  <h2>
+                    Founder Name
+                  </h2>
+
+                  <p>
+                    Partnerships, representation and market access
+                  </p>
+
+                  <span class="founder-card-hint">
+                    Discover profile
+                    <strong aria-hidden="true">↗</strong>
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <!-- BACK -->
+
+              <div class="founder-card-face founder-card-back">
+
+                <div class="founder-back-top">
+
+                  <span class="founder-role">
+                    Co-Founder
+                  </span>
+
+                  <span class="founder-number">
+                    02
+                  </span>
+
+                </div>
+
+                <div class="founder-back-content">
+
+                  <h2>
+                    Founder Name
+                  </h2>
+
+                  <p>
+                    Add the biography of the second founder here.
+                    Explain their professional background, expertise
+                    and role within RockStat.
+                  </p>
+
+                  <p>
+                    This paragraph can describe their approach to
+                    partnerships, representation, events or business
+                    development in international markets.
+                  </p>
+
+                  <ul>
+                    <li>Strategic partnerships</li>
+                    <li>International representation</li>
+                    <li>Market access</li>
+                    <li>Client relationships</li>
+                  </ul>
+
+                </div>
+
+                <a
+                  href="contacts.html"
+                  class="founder-contact-link"
+                >
+                  Start a conversation
+                  <span aria-hidden="true">↗</span>
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           SHARED VISION
+           ===================================================== -->
+
+      <section class="founders-vision">
+
+        <div class="founders-vision-number">
+          03
+        </div>
+
+        <div class="founders-vision-content">
+
+          <span class="section-label">
+            Our shared vision
+          </span>
+
+          <h2>
+            Local knowledge.
+            International perspective.
+          </h2>
+
+          <p>
+            We believe successful international growth requires more
+            than visibility. It requires market understanding,
+            credible relationships, consistent communication and a
+            strategy connected to real commercial objectives.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           CTA
+           ===================================================== -->
+
+      <section class="services-cta founders-cta">
+
+        <div class="cta-content">
+
+          <span class="section-label">
+            Work with RockStat
+          </span>
+
+          <h2>
+            Let us discuss your international growth.
+          </h2>
+
+          <p>
+            Tell us about your brand, your target markets and your
+            business goals. We will create an individual approach.
+          </p>
+
+        </div>
+
+        <div class="cta-actions">
+
+          <a href="contacts.html" class="primary-button">
+            Contact our team
+          </a>
+
+          <a href="services.html" class="secondary-button">
+            Explore services
+          </a>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="footer">
+
+      <div class="footer-brand">
+
+        <img
+          src="media/logo2.png"
+          alt="RockStat Logo"
+        >
+
+        <div>
+
+          <strong>
+            RockStat
+          </strong>
+
+          <span>
+            International Travel Marketing
+          </span>
+
+        </div>
+
+      </div>
+
+      <p>
+        © 2026 RockStat Marketing Agency. All rights reserved.
+      </p>
+
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
